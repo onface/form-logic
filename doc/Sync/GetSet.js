@@ -32,6 +32,31 @@ class Input extends Component {
                     {self.form.get('user')}:{self.form.get('age')}
                 </code>
                 <br />
+                <button
+                    onClick={function () {
+                        self.form.set('user', Math.random().toFixed(2))
+                    }}
+                >
+                    set(key, value)
+                </button>
+                <button
+                    onClick={function () {
+                        self.form.set({
+                            user: Math.random().toFixed(2),
+                            age: Math.random().toFixed(2)
+                        })
+                    }}
+                >
+                    set(object)
+                </button>
+                <button
+                    onClick={function (e) {
+                        e.target.innerHTML = JSON.stringify(self.form.getValue())
+                    }}
+                >
+                    getValue
+                </button>
+
             </div>
         )
     }
