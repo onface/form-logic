@@ -1,7 +1,7 @@
 # 文档
 
 
-## Sync
+## * Sync
 
 `Sync` 可在 React 这类单向数据流的框架中达到双向绑定的效果，但实际上还是单向数据流。这是一个可以提高开发效率的**双向绑定语法糖**。
 
@@ -70,8 +70,7 @@
 }
 ````
 
-## alias: input/output
-
+## Custom input/output
 
 ````code
 {
@@ -80,6 +79,34 @@
     html: '<div id="count-demo" ></div>',
     js: './Sync/Count.demo.js',
     source: './Sync/Count.js',
+    open: true
+}
+````
+
+### multiple parameter
+
+
+````code
+{
+    title: 'props sync',
+    desc: '',
+    html: '<div id="propsmulti-demo" ></div>',
+    js: './Sync/Props.demo.js',
+    source: './Sync/Props.js',
+    open: true
+}
+````
+
+## * get/set
+
+
+````code
+{
+    title: 'get set',
+    desc: '',
+    html: '<div id="getset-demo" ></div>',
+    js: './Sync/GetSet.demo.js',
+    source: './Sync/GetSet.js',
     open: true
 }
 ````

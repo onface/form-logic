@@ -48,6 +48,9 @@ class CountDemo extends Component {
         const self = this
         return (
             <div>
+                {/*
+                    <Count count={1} onMount={function(count){...}} />
+                */}
                 <Count
                     {
                         ...self.form.item('user', {
