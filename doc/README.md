@@ -1,11 +1,11 @@
 # 文档
 
-## Sync
+## sync
 
 ````code
 {
-    title: 'input',
-    desc: '`<input {...self.form.item("user")} /> <input {...self.form.password("user")} />`',
+    title: '基础使用',
+    desc: '**markdown**',
     html: '<div id="input-demo" ></div>',
     js: './Sync/Input.demo.js',
     source: './Sync/Input.js',
@@ -13,17 +13,30 @@
 }
 ````
 
-[更多示例](./Sync/README.md)
-
-## Check
+## check
 
 ````code
 {
-    title: 'check',
-    desc: '`<input {...self.form.item("user", {check: {...}})} />`',
+    title: '基础使用',
+    desc: '**markdown**',
     html: '<div id="check-basic-demo" ></div>',
     js: './Check/Basic.demo.js',
     source: './Check/Basic.js',
+    open: true
+}
+````
+
+
+
+## advanced
+
+````code
+{
+    title: '复杂使用',
+    desc: '**markdown**',
+    html: '<div id="basic-demo" ></div>',
+    js: './basic.demo.js',
+    source: './Basic.js',
     open: true
 }
 ````

@@ -9,7 +9,7 @@
 <div class="face-one-intro">
     <div class="face-one-intro-title">form-logic</div>
     <h2 class="face-one-intro-desc">
-        表单双向绑定、校验时机管理
+        formLogic
     </h2>
     <div class="face-one-intro-tool">
         <a href="https://onface.github.io/form-logic" class="face-one-intro-btn face-one-intro-btn--primary mr-online-hide" >在线文档</a>
@@ -27,7 +27,7 @@
                     <img src="./doc/theme/media/cogwheel.svg" alt="" class="face-one-feature-item-photo">
                     <br />
                     <div class="face-one-feature-item-label">定制开发</div>
-                    <div class="face-one-feature-item-desc">提供底层接口可与任何框架结合</div>
+                    <div class="face-one-feature-item-desc">提供底层接口便于二次开发</div>
                 </div>
             </td>
             <td align="center" >
@@ -43,8 +43,25 @@
                     <img src="./doc/theme/media/share.svg" alt="" class="face-one-feature-item-photo">
                     <br />
                     <div class="face-one-feature-item-label">逻辑封装</div>
-                    <div class="face-one-feature-item-desc">提供业务逻辑封装，快速开发</div>
+                    <div class="face-one-feature-item-desc">封装表单校验逻辑，快速开发</div>
                 </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="face-one-face-one-feature-title">
+    Creator
+</div>
+<div class="face-one-feature face-one-feature--creator">
+    <table style="width:100%;" data-comments="In order to github typesetting so use the table tag" >
+        <tr>
+            <td align="center" >
+                <a class="face-one-feature-item" href="https://github.com/onface">
+                    <img src="https://github.com/onface.png" width="150" height="150" alt="" class="face-one-feature-item-avatar">
+                    <br />
+                    <div class="face-one-feature-item-label">onface</div>
+                </a>
             </td>
         </tr>
     </table>

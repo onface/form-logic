@@ -1,7 +1,7 @@
 import React , { Component } from "react"
 import FormLogic from "form-logic"
 import $ from 'jquery'
-class Basic extends Component {
+class PromiseFn extends Component {
     constructor (props) {
         super(props)
         const self = this
@@ -12,9 +12,7 @@ class Basic extends Component {
         }
         self.form = new FormLogic({
             app: self,
-            getValue: function () {
-                return self.state.form
-            },
+            getValue: function () { return self.state.form },
             onSync: function (value) {
                 let state = self.state
                 state.form = value
@@ -41,20 +39,19 @@ class Basic extends Component {
                 }}
              >
                 <input {...self.form.item('user', {
-                    check: {
-                        default: function (value) {
-                            if(/\d/.test(value)){
-                                return '不允许出现数字'
-                            }else {
-                                return true
-                            }
-                        },
-                        change: function (value) {
-                            return /\d/.test(value) ? '不允许出现数字' : true
-                        },
-                        blur: (value) => {
-                            return /\d/.test(value) ? '不允许出现数字' : true
-                        }
+                    check: function(value) {
+                        return new Promise(function(resolve, reject) {
+                            // mock do async something
+                            setTimeout(function(){
+                                if(/\d/.test(value)){
+                                    reject('不允许出现数字')
+                                }
+                                if(!/\S/.test(value)){
+                                    reject('用户名必填')
+                                }
+                                resolve()
+                            },1000)
+                        })
                     }
                 })} />
                 <pre>{self.form.error('user')}</pre>
@@ -65,5 +62,5 @@ class Basic extends Component {
         )
     }
 }
-/*ONFACE-DEL*/Basic = require('react-hot-loader').hot(module)(Basic)
-export default Basic
+/*ONFACE-DEL*/PromiseFn = require('react-hot-loader').hot(module)(PromiseFn)
+export default PromiseFn

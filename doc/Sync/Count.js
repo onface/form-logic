@@ -12,7 +12,8 @@ class Count extends Component {
     render() {
         const self = this
         return (
-            <button className="countButton" onClick={function () {
+            <button className="countButton"
+                onClick={function () {
                     self.props.onMount(
                         self.props.count + 1
                     )
@@ -34,12 +35,14 @@ class CountDemo extends Component {
             }
         }
         self.form = new FormLogic({
-            getValue: function () { return self.state.form},
-            onSync: function (key, value) {
+            getValue: function () {
+                return self.state.form
+            },
+            onSync: function (value) {
                 let state = self.state
-                state.form[key] = value
+                state.form = value
                 self.setState({
-                    form: state.form
+                    form: value
                 })
             }
         })
@@ -49,7 +52,10 @@ class CountDemo extends Component {
         return (
             <div>
                 {/*
-                    <Count count={1} onMount={function(count){...}} />
+                    <Count
+                        count={1}
+                        onMount={function(count){...}}
+                    />
                 */}
                 <Count
                     {

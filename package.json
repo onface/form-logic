@@ -1,8 +1,8 @@
 {
     "name": "form-logic",
     "main": "lib/index.js",
-    "version": "0.1.0",
-    "description": "form logic",
+    "version": "0.2.0",
+    "description": "Formlogic",
     "keywords": "",
     "scripts": {
         "dev": "rm -rf output && fis3 release -w -d ./output -r ./ -f compile/fis-conf.js",
@@ -18,8 +18,13 @@
     "$username": "onface",
     "$repository": "form-logic",
     "dependencies": {
+        "delay-console": "^0.3.0",
         "delayeach": "^0.2.0",
-        "sparejs": "^0.4.0"
+        "json-modif": "^0.2.0",
+        "prop-types": "^15.6.0",
+        "safe-extend": "^3.0.4",
+        "sparejs": "^0.4.0",
+        "util.react": "^1.4.1"
     },
     "devDependencies": {
         "babel": "^6.23.0",
@@ -42,6 +47,7 @@
         "enzyme-adapter-react-16": "^1.1.1",
         "express": "^4.16.2",
         "extend": "^3.0.1",
+        "file-loader": "^1.1.6",
         "fis-parser-less-2.x": "^0.1.4",
         "fis3-hook-relative": "^2.0.1",
         "fis3-parser-vue-component": "^5.5.1",
@@ -51,6 +57,7 @@
         "is-absolute-url": "^2.1.0",
         "jasmine-core": "^2.8.0",
         "jquery": "^3.3.1",
+        "json-loader": "^0.5.7",
         "json5": "^0.5.1",
         "karma": "^2.0.0",
         "karma-babel-preprocessor": "^7.0.0",
@@ -66,12 +73,11 @@
         "livereload": "^0.6.3",
         "markrun": "^0.23.0",
         "open": "^0.0.5",
-        "prop-types": "^15.6.0",
         "react": "^16.2.0",
         "react-dom": "^16.2.0",
         "react-hot-loader": "^4.0.0-beta.6",
         "style-loader": "^0.13.1",
-        "util.react": "^1.4.1",
+        "url-loader": "^0.6.2",
         "vue": "^2.5.13",
         "vue-loader": "^13.6.1",
         "vue-template-compiler": "^2.5.13",

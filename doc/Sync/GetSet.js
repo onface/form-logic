@@ -7,16 +7,27 @@ class Input extends Component {
         self.state = {
             form: {
                 user: 'nimo',
-                age: 12
+                age: 12,
+                lists:[
+                    {
+                        id:111,
+                        name:'grifree'
+                    },{
+                        id:222,
+                        name:'haha'
+                    }
+                ]
             }
         }
         self.form = new FormLogic({
-            getValue: function () { return self.state.form },
-            onSync: function (key, value) {
+            getValue: function () {
+                return self.state.form
+            },
+            onSync: function (value) {
                 let state = self.state
-                state.form[key] = value
+                state.form = value
                 self.setState({
-                    form: state.form
+                    form: value
                 })
             }
         })
@@ -25,37 +36,122 @@ class Input extends Component {
         const self = this
         return (
             <div>
-                <input {...self.form.item('user')} />
-                <input {...self.form.item('age')} />
-                <br />
-                <code>
-                    {self.form.get('user')}:{self.form.get('age')}
-                </code>
-                <br />
-                <button
-                    onClick={function () {
-                        self.form.set('user', Math.random().toFixed(2))
-                    }}
-                >
-                    set(key, value)
-                </button>
-                <button
-                    onClick={function () {
-                        self.form.set({
-                            user: Math.random().toFixed(2),
-                            age: Math.random().toFixed(2)
-                        })
-                    }}
-                >
-                    set(object)
-                </button>
-                <button
-                    onClick={function (e) {
-                        e.target.innerHTML = JSON.stringify(self.form.getValue())
-                    }}
-                >
-                    getValue
-                </button>
+                <table>
+                <tbody>
+                <tr>
+                <td>
+                            this.state = 
+                            <pre>
+                                {JSON.stringify(self.state.form, null, 4)}
+                            </pre>
+                </td>
+                <td>
+                            user: <input {...self.form.item('user')} /><br/>
+                            age: <input {...self.form.item('age')} /><br/>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+                <table>
+                <tbody>
+                <tr>
+                <td>
+                            <pre className="code"
+                                onClick={function () {
+                                    self.form.set(
+                                        'user', 
+                                        Math.random().toFixed(2)
+                                    )
+                                }}
+                            >
+                                set('user', Math.random().toFixed(2) )
+                            </pre>
+                            <pre className="code"
+                                onClick={function() {
+                                    self.form.set('lists[0].name',Math.random())
+                                }}
+                            >
+                                set('lists[0].name', Math.random())
+                            </pre>
+                            <pre className="code"
+                                onClick={function() {
+                                    self.form.set('lists[{id:222}].name',Math.random())
+                                }}
+                            >
+                                {`set('lists[{id:222}].name',Math.random())`}
+                            </pre>
+                            <pre className="code"
+                                onClick={function () {
+                                    self.form.set({
+                                        user: Math.random().toFixed(2),
+                                        age: Math.random().toFixed(2)
+                                    })
+                                }}
+                            >
+{`set({
+    user: Math.random().toFixed(2),
+    age: Math.random().toFixed(2)
+})`}
+                            </pre>
+                            <pre className="code"
+                                onClick={function () {
+                                    self.form.set(
+                                        'lists[0]',
+                                        {
+                                            id: Math.random(),
+                                            name: Math.random()
+                                        }
+                                    )
+                                }}
+                            >
+{`set('lists[0]',{
+    id: Math.random(),
+    name: Math.random()
+})`}
+                            </pre>
+
+                </td>
+                <td>
+                            <pre className="code"
+                                onClick={function (e) {
+                                    alert(JSON.stringify(self.form.getValue()))
+                                }}
+                            >
+                                getValue
+                            </pre>
+                            <pre className="code"
+                                onClick={function (e) {
+                                    alert(JSON.stringify(self.form.get('user')))
+                                }}
+                            >
+                                get('user')
+                            </pre>
+                            <pre className="code"
+                                onClick={function (e) {
+                                    alert(JSON.stringify(self.form.get('lists[0].name')))
+                                }}
+                            >
+                                get('lists[0].name')
+                            </pre>
+                            <pre className="code"
+                                onClick={function (e) {
+                                    alert(JSON.stringify(self.form.get('lists[{id:222}].name')))
+                                }}
+                            >
+                                {`get('lists[{id:222}].name')`}
+                            </pre>
+                            <pre className="code"
+                                onClick={function (e) {
+                                    alert(JSON.stringify(self.form.get('lists[0]')))
+                                }}
+                            >
+                                get('lists[0]')
+                            </pre>
+                </td>
+                </tr>
+                </tbody>
+                </table>
+
 
             </div>
         )

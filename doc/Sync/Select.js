@@ -10,12 +10,14 @@ class Select extends Component {
             }
         }
         self.form = new FormLogic({
-            getValue: function () { return self.state.form},
-            onSync: function (key, value) {
+            getValue: function () {
+                return self.state.form
+            },
+            onSync: function (value) {
                 let state = self.state
-                state.form[key] = value
+                state.form = value
                 self.setState({
-                    form: state.form
+                    form: value
                 })
             }
         })

@@ -13,7 +13,7 @@ fis.hook(require('fis3-hook-relative'))
 fis.match('**', {
     relative: true
 })
-fis.match('{**.css,**.vue:less}', {
+fis.match('{**.css,**.vue:less,**.less}', {
     parser: fis.plugin('less-2.x', compileConfig.less),
     rExt: '.css'
 })
@@ -98,21 +98,24 @@ if (fis.project.currentMedia() !== 'npm') {
                             settings.desc = settings.desc || ''
                             settings.title = settings.title || path.parse(filePath).name
                             settings.html = settings.html || ''
+                            settings.horiz = settings.horiz || false
                             code = code.replace(/\/\*ONFACE-DEL\*\/.*/g, '')
                             code = markrun.markdownParserHighlight(code, 'js')
                             return {
                                 lang: 'replace',
                                 code: `
-    <div class="face-one-code ${settings.open?' face-one-code--open':''}">
-                        <div class="face-one-code-example">
-                            ${settings.html}
-                        </div>
-                        <div class="face-one-code-info">
-                            <div class="face-one-code-info-title">${settings.title}</div>
-                            <div class="face-one-code-info-desc">
-                                ${markrun(settings.desc, {template: '<%- content %>'})}
+    <div class="face-one-code ${settings.open?' face-one-code--open':''} ${settings.horiz?' face-one-code--horiz':''}">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                ${settings.html}
                             </div>
-                            <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">${settings.title}</div>
+                                <div class="face-one-code-info-desc">
+                                    ${markrun(settings.desc, {template: '<%- content %>'})}
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-${settings.horiz?'ellipsis':'code'}"></span>
+                            </div>
                         </div>
                         <div class="face-one-code-source">
                             <div class="face-one-code-source-tool">
@@ -250,3 +253,5 @@ if (fis.project.currentMedia() === 'npm') {
         release: false
     })
 }
+
+userConfig.fis(fis)
