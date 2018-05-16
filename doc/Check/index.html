@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="../theme/face/face.css">
+<meta name="keywords" content="">
+<meta name="description" content="check">
+<title>check</title>
+</head>
+<body>
+<div class="face-one-head">
+    <a class="face-one-head-logo" href="../../index.html">
+        <img src="../theme/media/logo.svg" alt="" class="face-one-head-logo-photo" />
+        face
+    </a>
+    <span class="face-one-head-slogan">
+        Write less code, do more things!
+    </span>
+    <!-- <div class="face-one-head-search">
+        <span class="face-one-head-search-icon fi fi-search"></span>
+        <input type="text" class="face-one-head-search-input" placeholder="搜索..." />
+    </div> -->
+    <div class="face-one-head-nav">
+        <span class="face-one-head-nav-switch fi fi-bars"></span>
+        <div class="face-one-head-nav-F-cnt">
+            <a href="../../index.html" class="face-one-head-nav-link">首页</a>
+            <a href="../intro.html" class="face-one-head-nav-link">指引</a>
+            <a href="../index.html" class="face-one-head-nav-link">文档</a>
+        </div>
+        <script>
+        Array.from(document.querySelectorAll('.face-one-head-nav-link')).forEach(function (node) {
+            if (node.href) {
+                var pathname = node.href.replace(/\?.*/, '')
+                if (pathname === location.origin + location.pathname) {
+                    node.setAttribute('class', node.getAttribute('class') + ' ' + 'face-one-head-nav-link--on')
+                }
+            }
+        })
+        </script>
+    </div>
+</div>
+
+<div class="face-one-layout">
+<div class="face-one-layout-F-line">
+<div class="face-one-layout-sidebar">
+<div class="face-one-nav">
+<span class="face-one-nav-switch fi fi-angle-double-right"></span>
+<div class="face-one-nav-F-inner">
+<div class="face-one-nav-item">
+    <a href="../intro.html" class="face-one-nav-item-label">指引</a>
+</div>
+<!-- <div class="face-one-nav-item">
+    <a href="../index.html" class="face-one-nav-item-label">文档</a>
+</div> -->
+<!-- face-one-nav-item--group-on 控制默认展开 -->
+<!-- <div class="face-one-nav-item face-one-nav-item--group face-one-nav-item--group-on">
+    <span class="face-one-nav-item-switch fi fi-down"></span>
+    <span class="face-one-nav-item-label">
+        文档
+    </span>
+    <div class="face-one-nav-item-group">
+        <div class="face-one-nav-item-group-title">示例</div>
+        <a href="../index.html#style" class="face-one-nav-item-group-item">颜色</a>
+        <a href="../index.html#border" class="face-one-nav-item-group-item">边框</a>
+    </div>
+    <div class="face-one-nav-item-group">
+        <div class="face-one-nav-item-group-title">自定义界面</div>
+        <a href="../index.html#less" class="face-one-nav-item-group-item">less</a>
+    </div>
+</div> -->
+<div class="face-one-nav-item face-one-nav-item--group face-one-nav-item--group-on">
+    <span class="face-one-nav-item-switch fi fi-angle-down"></span>
+    <span class="face-one-nav-item-label">
+        文档
+    </span>
+    <div class="face-one-nav-item-group">
+        <a href="../index.html" class="face-one-nav-item-group-item">索引</a>
+        <a href="../Sync/index.html" class="face-one-nav-item-group-item">Sync</a>
+        <a href="index.html" class="face-one-nav-item-group-item">Check</a>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="face-one-layout-cnt">
+<div id="face-one-cnt" class="face-one-cnt markdown-body">
+<div id="face-one-sidebar" class="face-one-sidebar"></div>
+<h1 id="check" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#check"><span class="markrun-anchor-link"></span></a>check</h1><p><code>check</code> 支持同步或异步自定义校验方式, 提供不同的校验的生命周期</p>
+<h2 id="basic" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#basic"><span class="markrun-anchor-link"></span></a>basic</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="check-basic-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">check</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>&lt;input {...self.form.item(&quot;user&quot;, {check: {...}})} /&gt;</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from <span class="hljs-string">"react"</span>
+import FormLogic from <span class="hljs-string">"face-form"</span>
+import $ from <span class="hljs-string">'jquery'</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Basic</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    constructor (props) {
+        super(props)
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.state = {
+            form: {
+                user: <span class="hljs-string">'nimo1'</span>
+            }
+        }
+        <span class="hljs-keyword">self</span>.form = <span class="hljs-keyword">new</span> FormLogic({
+            app: <span class="hljs-keyword">self</span>,
+            getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.state.form
+            },
+            onSync: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                <span class="hljs-keyword">let</span> state = <span class="hljs-keyword">self</span>.state
+                state.form = value
+                <span class="hljs-keyword">self</span>.setState({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">return</span> (
+            &lt;form
+                onSubmit={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+                    e.preventDefault()
+                    <span class="hljs-keyword">self</span>.form.checkAll(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fail, errors)</span> </span>{
+                        <span class="hljs-keyword">if</span> (fail) {
+                            alert(errors[<span class="hljs-number">0</span>].data)
+                            <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                            <span class="hljs-keyword">return</span>
+                        }
+                        alert(<span class="hljs-string">'success'</span>)
+                    })
+                }}
+             &gt;
+                &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'user'</span>, {
+                    check: {
+                        <span class="hljs-keyword">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                            <span class="hljs-keyword">if</span>(/\d/.test(value)){
+                                <span class="hljs-keyword">return</span> <span class="hljs-string">'不允许出现数字'</span>
+                            }<span class="hljs-keyword">else</span> {
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+                            }
+                        },
+                        change: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                            <span class="hljs-keyword">return</span> /\d/.test(value) ? <span class="hljs-string">'不允许出现数字'</span> : <span class="hljs-keyword">true</span>
+                        },
+                        blur: (value) =&gt; {
+                            <span class="hljs-keyword">return</span> /\d/.test(value) ? <span class="hljs-string">'不允许出现数字'</span> : <span class="hljs-keyword">true</span>
+                        }
+                    }
+                })} /&gt;
+                &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'user'</span>)}&lt;/pre&gt;
+                &lt;button type=<span class="hljs-string">"submit"</span> &gt;
+                    Submit
+                &lt;/button&gt;
+            &lt;/form&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Basic
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="Promise" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#Promise"><span class="markrun-anchor-link"></span></a>Promise</h2><p>使用 <code>promise</code> 校验异步的验证</p>
+
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="check-promiseFn-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">check</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>&lt;input {...self.form.item(&quot;user&quot;, {check: {...}})} /&gt;</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from <span class="hljs-string">"react"</span>
+import FormLogic from <span class="hljs-string">"face-form"</span>
+import $ from <span class="hljs-string">'jquery'</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PromiseFn</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    constructor (props) {
+        super(props)
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.state = {
+            form: {
+                user: <span class="hljs-string">'nimo1'</span>
+            }
+        }
+        <span class="hljs-keyword">self</span>.form = <span class="hljs-keyword">new</span> FormLogic({
+            app: <span class="hljs-keyword">self</span>,
+            getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.state.form },
+            onSync: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                <span class="hljs-keyword">let</span> state = <span class="hljs-keyword">self</span>.state
+                state.form = value
+                <span class="hljs-keyword">self</span>.setState({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">return</span> (
+            &lt;form
+                onSubmit={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+                    e.preventDefault()
+                    <span class="hljs-keyword">self</span>.form.checkAll(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fail, errors)</span> </span>{
+                        <span class="hljs-keyword">if</span> (fail) {
+                            alert(errors[<span class="hljs-number">0</span>].data)
+                            <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                            <span class="hljs-keyword">return</span>
+                        }
+                        alert(<span class="hljs-string">'success'</span>)
+                    })
+                }}
+             &gt;
+                &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'user'</span>, {
+                    check: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value)</span> </span>{
+                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Promise(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(resolve, reject)</span> </span>{
+                            <span class="hljs-comment">// mock do async something</span>
+                            setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+                                <span class="hljs-keyword">if</span>(/\d/.test(value)){
+                                    reject(<span class="hljs-string">'不允许出现数字'</span>)
+                                }
+                                <span class="hljs-keyword">if</span>(!/\S/.test(value)){
+                                    reject(<span class="hljs-string">'用户名必填'</span>)
+                                }
+                                resolve()
+                            },<span class="hljs-number">1000</span>)
+                        })
+                    }
+                })} /&gt;
+                &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'user'</span>)}&lt;/pre&gt;
+                &lt;button type=<span class="hljs-string">"submit"</span> &gt;
+                    Submit
+                &lt;/button&gt;
+            &lt;/form&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> PromiseFn
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="check trigger time" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#check trigger time"><span class="markrun-anchor-link"></span></a>check trigger time</h2><p>配置不同的时机触发不一样的校验函数, 也可以用<code>|</code>使之共用</p>
+
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="check-time-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">check trigger time</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>check: fn()</code> <code>check: {default:...,change:...,blur:...,focus|blur:...}</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from <span class="hljs-string">"react"</span>
+import FormLogic from <span class="hljs-string">"face-form"</span>
+import $ from <span class="hljs-string">'jquery'</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Time</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    constructor (props) {
+        super(props)
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.state = {
+            form: {
+                price: <span class="hljs-string">''</span>
+            }
+        }
+        <span class="hljs-keyword">self</span>.form = <span class="hljs-keyword">new</span> FormLogic({
+            app: <span class="hljs-keyword">self</span>,
+            getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.state.form },
+            onSync: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                <span class="hljs-keyword">let</span> state = <span class="hljs-keyword">self</span>.state
+                state.form = value
+                <span class="hljs-keyword">self</span>.setState({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">return</span> (
+            &lt;form
+                onSubmit={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+                    e.preventDefault()
+                    <span class="hljs-keyword">self</span>.form.checkAll(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fail, errors)</span> </span>{
+                        <span class="hljs-keyword">if</span> (fail) {
+                            alert(errors[<span class="hljs-number">0</span>].data)
+                            <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                            <span class="hljs-keyword">return</span>
+                        }
+                        alert(<span class="hljs-string">'success'</span>)
+                    })
+                }}
+             &gt;
+                价格 (<span class="hljs-number">10</span>~<span class="hljs-number">100</span>/元): &lt;br/&gt;
+                &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'price'</span>, {
+                    check: {
+                        <span class="hljs-string">'default|blur'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value)</span> </span>{
+                            <span class="hljs-keyword">if</span>(!/\S/.test(value)){
+                                <span class="hljs-keyword">return</span> <span class="hljs-string">'价格必填'</span>
+                            }
+                            <span class="hljs-keyword">if</span>(/[^\d]/.test(value)){
+                                <span class="hljs-keyword">return</span> <span class="hljs-string">'只能输入数字'</span>
+                            }
+                            <span class="hljs-keyword">if</span>(value &lt; <span class="hljs-number">10</span> || value &gt; <span class="hljs-number">100</span>){
+                                <span class="hljs-keyword">return</span> <span class="hljs-string">'价格必须在 10 ~ 100 之间'</span>
+                            }
+                            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+                        },
+                        focus: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value)</span> </span>{
+                            <span class="hljs-keyword">if</span>(!/\S/.test(value)){
+                                <span class="hljs-keyword">return</span> <span class="hljs-string">'(获取焦点时检测)价格必填'</span>
+                            }
+                            <span class="hljs-keyword">if</span>(value &lt; <span class="hljs-number">10</span> || value &gt; <span class="hljs-number">100</span>){
+                                <span class="hljs-keyword">return</span> <span class="hljs-string">'(获取焦点时检测)价格必须在 10 ~ 100 之间'</span>
+                            }
+                            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+                        },
+                        change: (value) =&gt; {
+                            <span class="hljs-keyword">return</span> /[^\d]/.test(value) ? <span class="hljs-string">'(输入时检测)只能输入数字'</span> : <span class="hljs-keyword">true</span>
+                        }
+                    }
+                })} /&gt;
+            &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'price'</span>)}&lt;/pre&gt;
+                &lt;button type=<span class="hljs-string">"submit"</span> &gt;
+                    Submit
+                &lt;/button&gt;
+            &lt;/form&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Time
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<pre><code>&lt;<span class="hljs-selector-tag">input</span> {..<span class="hljs-selector-class">.self</span><span class="hljs-selector-class">.form</span><span class="hljs-selector-class">.item</span>(key, {
+    check: () =&gt; { ... }
+}/&gt;
+<span class="hljs-comment">// 等同于</span>
+&lt;<span class="hljs-selector-tag">input</span> {..<span class="hljs-selector-class">.self</span><span class="hljs-selector-class">.form</span><span class="hljs-selector-class">.item</span>(key, {
+    check:{
+        <span class="hljs-string">'default|blur'</span>: () =&gt; { ... }
+    }
+}/&gt;
+</code></pre><h2 id="check checkAll" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#check checkAll"><span class="markrun-anchor-link"></span></a>check checkAll</h2><p>手动调用校验函数</p>
+
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="check-fn-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">check, checkAll</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>check(key, fn)</code> <code>check(keyArray, fn)</code> <code>checkAll(fn)</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from <span class="hljs-string">"react"</span>
+import FormLogic from <span class="hljs-string">"face-form"</span>
+import $ from <span class="hljs-string">'jquery'</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CheckFn</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    constructor (props) {
+        super(props)
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.state = {
+            form: {
+                user: <span class="hljs-string">'nimo123'</span>,
+                psw: <span class="hljs-string">''</span>,
+                repsw: <span class="hljs-string">''</span>,
+            }
+        }
+        <span class="hljs-keyword">self</span>.form = <span class="hljs-keyword">new</span> FormLogic({
+            app: <span class="hljs-keyword">self</span>,
+            getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.state.form },
+            onSync: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                <span class="hljs-keyword">let</span> state = <span class="hljs-keyword">self</span>.state
+                state.form = value
+                <span class="hljs-keyword">self</span>.setState({
+                    form: value
+                })
+            }
+        })
+    }
+    checkAll = () =&gt; {
+        <span class="hljs-keyword">let</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.form.checkAll(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fail, errors)</span> </span>{
+            <span class="hljs-keyword">if</span> (fail) {
+                alert(errors[<span class="hljs-number">0</span>].data)
+                <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                <span class="hljs-keyword">return</span>
+            }
+            alert(<span class="hljs-string">'success'</span>)
+        })
+    }
+    check = (key) =&gt; {
+        <span class="hljs-keyword">let</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.form.check(key, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fail, errors)</span> </span>{
+            <span class="hljs-keyword">if</span> (fail) {
+                alert(errors[<span class="hljs-number">0</span>].data)
+                <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                <span class="hljs-keyword">return</span>
+            }
+            alert(<span class="hljs-string">'success'</span>)
+        })
+    }
+    render() {
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">return</span> (
+            &lt;form onSubmit={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span></span>{
+                    e.preventDefault();
+                }}
+            &gt;
+                user (非数字): &lt;br/&gt;
+                &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'user'</span>, {
+                    check: (value) =&gt; {
+                        <span class="hljs-keyword">return</span> /\d/.test(value) ? <span class="hljs-string">'不能存在数字'</span> : <span class="hljs-keyword">true</span>
+                    }
+                })} /&gt;
+                &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'user'</span>)}&lt;/pre&gt;
+
+                psw (必填): &lt;br/&gt;
+                &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'psw'</span>, {
+                    check: (value) =&gt; {
+                        <span class="hljs-keyword">return</span> !/\S/.test(value) ? <span class="hljs-string">'密码必填'</span> : <span class="hljs-keyword">true</span>
+                    }
+                })} /&gt;
+                &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'psw'</span>)}&lt;/pre&gt;
+
+                repsw (必填): &lt;br/&gt;
+                &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'repsw'</span>, {
+                    check: (value) =&gt; {
+                        <span class="hljs-keyword">return</span> value == <span class="hljs-keyword">self</span>.form.psw ? <span class="hljs-keyword">true</span> : <span class="hljs-string">'密码不一致'</span>
+                    }
+                })} /&gt;
+                &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'repsw'</span>)}&lt;/pre&gt;
+
+                &lt;button onClick={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">self</span>.check(<span class="hljs-string">'user'</span>)
+                }}
+                &gt;check(<span class="hljs-string">'psw'</span>)&lt;/button&gt;
+                &lt;button onClick={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">self</span>.check([<span class="hljs-string">'user'</span>,<span class="hljs-string">'psw'</span>])
+                }}
+                &gt;check([<span class="hljs-string">'user'</span>,<span class="hljs-string">'psw'</span>])&lt;/button&gt;
+                &lt;button onClick={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+                    <span class="hljs-keyword">self</span>.checkAll()
+                }}
+                &gt;checkAll&lt;/button&gt;
+            &lt;/form&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> CheckFn
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="options" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#options"><span class="markrun-anchor-link"></span></a>options</h2><ul>
+<li>queue       <blockquote>
+<p>校验顺序方式 : true 队列式一次校验, false 并发式一起校验      </p>
+</blockquote>
+</li>
+<li>every     <blockquote>
+<p>校验结束时机 : false 一个错就结束,执行回调, true 全部校验完成结束,执行回调</p>
+</blockquote>
+</li>
+</ul>
+<p>声明<code>new FormLogic()</code>时, 可以配置默认<code>{function|object} options</code>, 
+在调用<code>check</code>或<code>checkAll</code>时, 无<code>{object} options</code>参数, 即调用声明时配置参数</p>
+
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="check-options-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">调用方式</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>check(key, [options,] fn)</code> <br/> <code>check(keyArray, [options,] fn)</code> <br/> <code>checkAll([options,] fn)</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from <span class="hljs-string">"react"</span>
+import FormLogic from <span class="hljs-string">"face-form"</span>
+import $ from <span class="hljs-string">'jquery'</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Options</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    constructor (props) {
+        super(props)
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.state = {
+            form: {
+                user: <span class="hljs-string">'nimo1'</span>
+            },
+            queue:<span class="hljs-keyword">true</span>,
+            every:<span class="hljs-keyword">true</span>,
+            time: <span class="hljs-number">0</span> <span class="hljs-comment">// 辅助计时 忽略参数</span>
+        }
+        <span class="hljs-keyword">self</span>.form = <span class="hljs-keyword">new</span> FormLogic({
+            app: <span class="hljs-keyword">self</span>,
+            getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.state.form },
+            onSync: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                <span class="hljs-keyword">let</span> state = <span class="hljs-keyword">self</span>.state
+                state.form = value
+                <span class="hljs-keyword">self</span>.setState({
+                    form: value
+                })
+            },
+            options:<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> {
+                    queue:<span class="hljs-keyword">self</span>.state.queue,
+                    every:<span class="hljs-keyword">self</span>.state.every
+                }
+            }
+            <span class="hljs-comment">/* 也可以写成
+            options: {
+                queue:true,
+                every:true
+            }
+            */</span>
+        })
+    }
+    checkAll = () =&gt; {
+        <span class="hljs-keyword">let</span> <span class="hljs-keyword">self</span> = this
+
+        <span class="hljs-comment">/* 辅助计时 忽略代码 start */</span>
+        <span class="hljs-keyword">let</span> count = <span class="hljs-number">0</span>
+        <span class="hljs-keyword">self</span>.setState({
+            time: <span class="hljs-number">0</span>
+        })
+        <span class="hljs-keyword">while</span>(count&lt;<span class="hljs-number">6</span>){
+            setTimeout(()=&gt;{
+                <span class="hljs-keyword">self</span>.setState({
+                    time: <span class="hljs-keyword">self</span>.state.time + <span class="hljs-number">1</span>
+                })
+                console.log(<span class="hljs-keyword">self</span>.state.time+<span class="hljs-string">'s'</span>)
+            },count*<span class="hljs-number">1000</span> + <span class="hljs-number">1000</span>)
+            count++
+        }
+        <span class="hljs-comment">/* 辅助计时 忽略代码 end */</span>
+
+        <span class="hljs-comment">// 校验</span>
+        <span class="hljs-keyword">self</span>.form.checkAll(
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fail, errors)</span> </span>{
+                <span class="hljs-keyword">if</span> (fail) {
+                    alert(errors[<span class="hljs-number">0</span>].data)
+                    <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                    <span class="hljs-keyword">return</span>
+                }
+                alert(<span class="hljs-string">'success'</span>)
+            }
+        )
+        <span class="hljs-comment">/* 也可以写成
+        self.form.checkAll(
+            {
+                queue:true,
+                every:true
+            },
+            function (fail, errors) {
+                ...
+            }
+        )
+        */</span>
+    }
+    render() {
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">return</span> (
+            &lt;form
+                onSubmit={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+                    e.preventDefault()
+                    <span class="hljs-keyword">self</span>.checkAll()
+                }}
+             &gt;
+                 user:
+                 &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'user'</span>, {
+                     check: (value) =&gt; {
+                         <span class="hljs-keyword">return</span> /\d/.test(value) ? <span class="hljs-string">'不能存在数字'</span> : <span class="hljs-keyword">true</span>
+                     }
+                 })} /&gt;
+                 (立即返回校验结果)
+                 &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'user'</span>)}&lt;/pre&gt;
+                 psw:
+                 &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'psw'</span>, {
+                     check: (value) =&gt; {
+                         <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Promise((resolve, reject) =&gt; {
+                             setTimeout(()=&gt;{
+                                 <span class="hljs-keyword">if</span>(!/\S/.test(value)){
+                                     reject(<span class="hljs-string">'密码必填'</span>)
+                                 }<span class="hljs-keyword">else</span>{
+                                     resolve()
+                                 }
+                             },<span class="hljs-number">2000</span>)
+                         })
+                     }
+                 })} /&gt;
+                 (<span class="hljs-number">2</span>秒后返回校验结果)
+                 &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'psw'</span>)}&lt;/pre&gt;
+                 repsw:
+                 &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'repsw'</span>, {
+                    check: (value) =&gt; {
+                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Promise((resolve, reject) =&gt; {
+                            setTimeout(()=&gt;{
+                                <span class="hljs-keyword">if</span>(value == <span class="hljs-keyword">self</span>.form.psw){
+                                    resolve()
+                                }<span class="hljs-keyword">else</span>{
+                                    reject(<span class="hljs-string">'密码不一致'</span>)
+                                }
+                            },<span class="hljs-number">3000</span>)
+                        })
+                    }
+                })} /&gt;
+                (<span class="hljs-number">3</span>秒后返回校验结果)
+                &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'repsw'</span>)}&lt;/pre&gt;
+
+                &lt;hr/&gt;
+                    queue:
+                    &lt;select value={<span class="hljs-keyword">self</span>.state.queue}
+                        onChange={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span></span>{
+                            <span class="hljs-keyword">self</span>.setState({
+                                queue:e.target.value == <span class="hljs-string">'true'</span> ? <span class="hljs-keyword">true</span> : <span class="hljs-keyword">false</span>
+                            })
+                        }}
+                    &gt;
+                        &lt;option value={<span class="hljs-keyword">true</span>} &gt;<span class="hljs-keyword">true</span>&lt;/option&gt;
+                        &lt;option value={<span class="hljs-keyword">false</span>} &gt;<span class="hljs-keyword">false</span>&lt;/option&gt;
+                    &lt;/select&gt;
+                    every:
+                    &lt;select value={<span class="hljs-keyword">self</span>.state.every}
+                        onChange={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span></span>{
+                            <span class="hljs-keyword">self</span>.setState({
+                                every:e.target.value == <span class="hljs-string">'true'</span> ? <span class="hljs-keyword">true</span> : <span class="hljs-keyword">false</span>
+                            })
+                        }}
+                    &gt;
+                        &lt;option value={<span class="hljs-keyword">true</span>} &gt;<span class="hljs-keyword">true</span>&lt;/option&gt;
+                        &lt;option value={<span class="hljs-keyword">false</span>} &gt;<span class="hljs-keyword">false</span>&lt;/option&gt;
+                    &lt;/select&gt;
+                     {<span class="hljs-string">' ( 辅助计时,方便对比: '</span>+ <span class="hljs-keyword">self</span>.state.time+<span class="hljs-string">' s ) '</span>}
+                &lt;button type=<span class="hljs-string">"submit"</span> &gt;
+                    Submit
+                &lt;/button&gt;
+            &lt;/form&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Options
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="disabled" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#disabled"><span class="markrun-anchor-link"></span></a>disabled</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="check-disabled-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">disabled</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>&lt;input {...self.form.item(&quot;user&quot;, {disabled: &lt;Boolean&gt; })} /&gt;</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from <span class="hljs-string">"react"</span>
+import FormLogic from <span class="hljs-string">"face-form"</span>
+import $ from <span class="hljs-string">'jquery'</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Disabled</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    constructor (props) {
+        super(props)
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.state = {
+            form: {
+                user: <span class="hljs-string">'nimo1'</span>
+            },
+            disabled:<span class="hljs-keyword">false</span>
+        }
+        <span class="hljs-keyword">self</span>.form = <span class="hljs-keyword">new</span> FormLogic({
+            app: <span class="hljs-keyword">self</span>,
+            getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.state.form },
+            onSync: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                <span class="hljs-keyword">let</span> state = <span class="hljs-keyword">self</span>.state
+                state.form = value
+                <span class="hljs-keyword">self</span>.setState({
+                    form: value
+                })
+            }
+        })
+    }
+    checkAll = () =&gt; {
+        <span class="hljs-keyword">let</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.form.checkAll(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fail, errors)</span> </span>{
+            console.log(fail, errors)
+            <span class="hljs-keyword">if</span> (fail) {
+                alert(errors[<span class="hljs-number">0</span>].data)
+                <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                <span class="hljs-keyword">return</span>
+            }
+            alert(<span class="hljs-string">'success'</span>)
+        })
+    }
+    render() {
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">return</span> (
+            &lt;form
+                onSubmit={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+                    e.preventDefault()
+                    <span class="hljs-keyword">self</span>.checkAll()
+                }}
+             &gt;
+                &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'user'</span>, {
+                    disabled: <span class="hljs-keyword">self</span>.state.disabled,
+                    check: (value) =&gt; {
+                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Promise((resolve, reject) =&gt; {
+                            <span class="hljs-keyword">if</span>(/\d/.test(value)){
+                                reject(<span class="hljs-string">'user 不允许出现数字'</span>)
+                            }<span class="hljs-keyword">else</span>{
+                                resolve()
+                            }
+                        })
+                    }
+                })} /&gt;
+                disabled:
+                &lt;input type=<span class="hljs-string">"checkbox"</span>
+                        checked={<span class="hljs-keyword">self</span>.state.disabled}
+                        onChange={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+                            <span class="hljs-keyword">self</span>.setState({
+                                disabled:!<span class="hljs-keyword">self</span>.state.disabled
+                            })
+                        }}
+                /&gt;
+                &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'user'</span>)}&lt;/pre&gt;
+                &lt;button type=<span class="hljs-string">"submit"</span> &gt;
+                    Submit
+                &lt;/button&gt;
+            &lt;/form&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Disabled
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="clear" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#clear"><span class="markrun-anchor-link"></span></a>clear</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="check-clear-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">clear</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>clear()</code> <code>clear(key)</code> <code>clear(keyArray)</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from <span class="hljs-string">"react"</span>
+import FormLogic from <span class="hljs-string">"face-form"</span>
+import $ from <span class="hljs-string">'jquery'</span>
+import safeExt from <span class="hljs-string">'safe-extend'</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Clear</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    constructor (props) {
+        super(props)
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.state = {
+            type: <span class="hljs-string">'company'</span>,
+            form: {
+                user: <span class="hljs-string">'nimo1'</span>,
+                company_name: <span class="hljs-string">'123'</span>
+            }
+        }
+        <span class="hljs-keyword">self</span>.form = <span class="hljs-keyword">new</span> FormLogic({
+            app: <span class="hljs-keyword">self</span>,
+            getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.state.form
+            },
+            onSync: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                <span class="hljs-keyword">let</span> state = <span class="hljs-keyword">self</span>.state
+                state.form = value
+                <span class="hljs-keyword">self</span>.setState({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        console.log(<span class="hljs-string">'self.form.data'</span>,<span class="hljs-keyword">self</span>.form.data)
+        <span class="hljs-keyword">return</span> (
+            &lt;div&gt;
+                &lt;select
+                    name=<span class="hljs-string">"type"</span>
+                    value={<span class="hljs-keyword">self</span>.state.type}
+                    onChange={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span></span>{
+                        <span class="hljs-keyword">self</span>.setState({
+                            type:e.target.value
+                        })
+                    }}
+                &gt;
+                    &lt;option value=<span class="hljs-string">""</span>&gt;其他&lt;/option&gt;
+                    &lt;option value=<span class="hljs-string">"company"</span>&gt;公司注册&lt;/option&gt;
+                    &lt;option value=<span class="hljs-string">"person"</span>&gt;个人注册&lt;/option&gt;
+                &lt;/select&gt;
+                &lt;form
+                    onSubmit={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+                        e.preventDefault()
+                        <span class="hljs-keyword">self</span>.form.checkAll(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fail, errors)</span> </span>{
+                            <span class="hljs-keyword">if</span> (fail) {
+                                alert(errors[<span class="hljs-number">0</span>].data)
+                                <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                                <span class="hljs-keyword">return</span>
+                            }
+                            alert(<span class="hljs-string">'success'</span>)
+                        })
+                    }}
+                 &gt;
+                    {
+                        <span class="hljs-keyword">self</span>.state.type
+                        ? (&lt;div&gt;
+                            名字: 
+                            &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'user'</span>, {
+                                check: {
+                                    <span class="hljs-keyword">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                                        <span class="hljs-keyword">if</span>(/\d/.test(value)){
+                                            <span class="hljs-keyword">return</span> <span class="hljs-string">'名字 不允许出现数字'</span>
+                                        }<span class="hljs-keyword">else</span> {
+                                            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+                                        }
+                                    },
+                                    change: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                                        <span class="hljs-keyword">return</span> /\d/.test(value) ? <span class="hljs-string">'名字 不允许出现数字'</span> : <span class="hljs-keyword">true</span>
+                                    },
+                                    blur: (value) =&gt; {
+                                        <span class="hljs-keyword">return</span> /\d/.test(value) ? <span class="hljs-string">'名字 不允许出现数字'</span> : <span class="hljs-keyword">true</span>
+                                    }
+                                }
+                            })} /&gt;
+                            &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'user'</span>)}&lt;/pre&gt;
+                        &lt;/div&gt;) : <span class="hljs-keyword">null</span>
+                    }
+                    {
+                        <span class="hljs-keyword">self</span>.state.type == <span class="hljs-string">'company'</span>
+                        ? (&lt;div&gt;
+                            公司名字: 
+                            &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'company_name'</span>, {
+                                check: {
+                                    <span class="hljs-keyword">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                                        <span class="hljs-keyword">if</span>(/\d/.test(value)){
+                                            <span class="hljs-keyword">return</span> <span class="hljs-string">'公司名字 不允许出现数字'</span>
+                                        }<span class="hljs-keyword">else</span> {
+                                            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+                                        }
+                                    },
+                                    change: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                                        <span class="hljs-keyword">return</span> /\d/.test(value) ? <span class="hljs-string">'公司名字 不允许出现数字'</span> : <span class="hljs-keyword">true</span>
+                                    },
+                                    blur: (value) =&gt; {
+                                        <span class="hljs-keyword">return</span> /\d/.test(value) ? <span class="hljs-string">'公司名字 不允许出现数字'</span> : <span class="hljs-keyword">true</span>
+                                    }
+                                }
+                            })} /&gt;
+                            &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'company_name'</span>)}&lt;/pre&gt;
+                        &lt;/div&gt;) : <span class="hljs-keyword">null</span>
+                    }
+                    &lt;button type=<span class="hljs-string">"submit"</span> &gt;
+                        Submit
+                    &lt;/button&gt;
+                &lt;/form&gt;
+                &lt;hr/&gt;
+                &lt;button 
+                    onClick={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+                        <span class="hljs-keyword">self</span>.setState({
+                            type:<span class="hljs-string">''</span>
+                        })
+                        <span class="hljs-keyword">self</span>.form.clear()
+                    }}
+                &gt;clear()&lt;/button&gt;
+                &lt;button 
+                    onClick={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+                        <span class="hljs-keyword">self</span>.setState({
+                            type:<span class="hljs-string">'person'</span>
+                        })
+                        <span class="hljs-keyword">self</span>.form.clear(<span class="hljs-string">'company_name'</span>)
+                    }}
+                &gt;clear(<span class="hljs-string">'company_name'</span>)&lt;/button&gt;
+                &lt;pre&gt;
+                    {JSON.stringify(<span class="hljs-keyword">self</span>.form.data, <span class="hljs-keyword">null</span>, <span class="hljs-number">4</span>)}
+                &lt;/pre&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Clear
+
+</code></pre>
+                        </div>
+                        
+                    </div></div>
+</div>
+</div>
+</div>
+<script>
+Array.from(document.querySelectorAll('.face-one-nav-item-label')).forEach(function (node) {
+    if (node.href) {
+        var pathname = node.href.replace(/\?.*/, '')
+        if (pathname === location.origin + location.pathname + location.hash) {
+            node.setAttribute('class', node.getAttribute('class') + ' ' + 'face-one-nav-item-label--on')
+        }
+    }
+})
+var faceOneGetParent = function faceOneGetParent (el, className) {
+   if (el.parentNode.nodeName.toLowerCase() === 'html') {
+       return null
+   }
+   var parentClassName = el.parentNode.getAttribute('class')
+   var classNames = ''
+   if (parentClassName) {
+       classNames = parentClassName.split(' ')
+   }
+   if (classNames.indexOf(className) !== -1) {
+       return el.parentNode
+   }
+   else {
+       return faceOneGetParent(el.parentNode, className)
+   }
+}
+Array.from(document.querySelectorAll('.face-one-nav-item-group-item')).forEach(function (node) {
+    addAvativeClass(node)
+    function addAvativeClass (node)  {
+        if (node.href) {
+            var pathname = node.href.replace(/\?.*/, '')
+            if (pathname === location.origin + location.pathname + location.hash) {
+                node.setAttribute('class', node.getAttribute('class') + ' ' + 'face-one-nav-item-group-item--on')
+                var parentNode = faceOneGetParent(node, 'face-one-nav-item--group')
+                if (parentNode) {
+                    parentNode.setAttribute('class', parentNode.getAttribute('class') + ' ' + 'face-one-nav-item--group-on')
+                }
+            }
+        }
+    }
+
+})
+</script>
+<div class="face-one-foot">
+    <div class="face-one-foot-F-inner">
+        <div class="face-one-foot-group">
+            <div class="face-one-foot-group-title">
+                <span class="face-one-foot-group-title-icon fi fi-github"></span>
+                Github
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/face-form" class="face-one-foot-group-item-link">face-form</a>
+                - 项目源码
+            </div>
+        </div>
+        <div class="face-one-foot-group">
+            <div class="face-one-foot-group-title">
+                <span class="face-one-foot-group-title-icon fi fi-link"></span>
+                相关站点
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://onface.github.io/component-spec">component-spec</a>
+                - 组件规范
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/module" class="face-one-foot-group-item-link">module</a>
+                - 开源项目脚手架
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="http://onface.cc/" class="face-one-foot-group-item-link">onface.cc</a>
+                - 资源集合
+            </div>
+        </div>
+        <div class="face-one-foot-group">
+            <div class="face-one-foot-group-title">
+                <span class="face-one-foot-group-title-icon fi fi-team"></span>
+                社区
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/face-form/issues" class="face-one-foot-group-item-link">Github issues</a>
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/face-form/issues/new" class="face-one-foot-group-item-link">提交bug</a>
+            </div>
+        </div>
+        <div class="face-one-foot-copyright">
+            <a href="../../index.html" class="face-one-foot-copyright-title">
+                <img src="../theme/media/logo.svg" class="face-one-foot-copyright-title-logo" />
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="../theme/jquery.js"></script>
+<script>delete window.$</script>
+<script src="../theme/face/face.js" ></script>
+<script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="./Basic.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="./PromiseFn.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="./Time.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="./CheckFn.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="./Options.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="./Disabled.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="./Clear.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script></body>
+</html>
