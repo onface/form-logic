@@ -12,7 +12,7 @@
         faceForm
     </h2>
     <div class="face-one-intro-tool">
-        <a href="https://onface.github.io/face-form" class="face-one-intro-btn face-one-intro-btn--primary mr-online-hide" >在线文档</a>
+        <a href="https://onface.github.io/form-logic" class="face-one-intro-btn face-one-intro-btn--primary mr-online-hide" >在线文档</a>
         <!-- MARKRUN-HTML
             <a href="./doc/intro.md" class="face-one-intro-btn face-one-intro-btn--primary">指引</a>
             <a href="http://github.com/onface/face-form" class="face-one-intro-btn">GITHUB</a>
