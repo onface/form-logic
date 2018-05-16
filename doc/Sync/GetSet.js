@@ -1,5 +1,5 @@
 import React , { Component } from "react"
-import FormLogic from "form-logic"
+import FormLogic from "face-form"
 class Input extends Component {
     constructor (props) {
         super(props)

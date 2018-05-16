@@ -1,5 +1,5 @@
 {
-    "name": "form-logic",
+    "name": "face-form",
     "main": "lib/index.js",
     "version": "0.2.0",
     "description": "Formlogic",
@@ -16,7 +16,7 @@
         "test:ci": "./node_modules/karma/bin/karma start ./compile/karma.ci.js"
     },
     "$username": "onface",
-    "$repository": "form-logic",
+    "$repository": "face-form",
     "dependencies": {
         "delay-console": "^0.3.0",
         "delayeach": "^0.2.0",

@@ -1,5 +1,5 @@
 import React , { Component } from "react"
-import FormLogic from "form-logic"
+import FormLogic from "face-form"
 
 class Count extends Component {
     constructor (props) {

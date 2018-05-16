@@ -254,4 +254,8 @@ if (fis.project.currentMedia() === 'npm') {
     })
 }
 
+fis.match('api.md',{
+    release:false
+},999)
+
 userConfig.fis(fis)
