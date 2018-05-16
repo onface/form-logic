@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="theme/face/face.css">
+<meta name="keywords" content="">
+<meta name="description" content="文档">
+<title>文档</title>
+</head>
+<body>
+<div class="face-one-head">
+    <a class="face-one-head-logo" href="../index.html">
+        <img src="theme/media/logo.svg" alt="" class="face-one-head-logo-photo" />
+        face
+    </a>
+    <span class="face-one-head-slogan">
+        Write less code, do more things!
+    </span>
+    <!-- <div class="face-one-head-search">
+        <span class="face-one-head-search-icon fi fi-search"></span>
+        <input type="text" class="face-one-head-search-input" placeholder="搜索..." />
+    </div> -->
+    <div class="face-one-head-nav">
+        <span class="face-one-head-nav-switch fi fi-bars"></span>
+        <div class="face-one-head-nav-F-cnt">
+            <a href="../index.html" class="face-one-head-nav-link">首页</a>
+            <a href="intro.html" class="face-one-head-nav-link">指引</a>
+            <a href="index.html" class="face-one-head-nav-link">文档</a>
+        </div>
+        <script>
+        Array.from(document.querySelectorAll('.face-one-head-nav-link')).forEach(function (node) {
+            if (node.href) {
+                var pathname = node.href.replace(/\?.*/, '')
+                if (pathname === location.origin + location.pathname) {
+                    node.setAttribute('class', node.getAttribute('class') + ' ' + 'face-one-head-nav-link--on')
+                }
+            }
+        })
+        </script>
+    </div>
+</div>
+
+<div class="face-one-layout">
+<div class="face-one-layout-F-line">
+<div class="face-one-layout-sidebar">
+<div class="face-one-nav">
+<span class="face-one-nav-switch fi fi-angle-double-right"></span>
+<div class="face-one-nav-F-inner">
+<div class="face-one-nav-item">
+    <a href="intro.html" class="face-one-nav-item-label">指引</a>
+</div>
+<!-- <div class="face-one-nav-item">
+    <a href="index.html" class="face-one-nav-item-label">文档</a>
+</div> -->
+<!-- face-one-nav-item--group-on 控制默认展开 -->
+<!-- <div class="face-one-nav-item face-one-nav-item--group face-one-nav-item--group-on">
+    <span class="face-one-nav-item-switch fi fi-down"></span>
+    <span class="face-one-nav-item-label">
+        文档
+    </span>
+    <div class="face-one-nav-item-group">
+        <div class="face-one-nav-item-group-title">示例</div>
+        <a href="index.html#style" class="face-one-nav-item-group-item">颜色</a>
+        <a href="index.html#border" class="face-one-nav-item-group-item">边框</a>
+    </div>
+    <div class="face-one-nav-item-group">
+        <div class="face-one-nav-item-group-title">自定义界面</div>
+        <a href="index.html#less" class="face-one-nav-item-group-item">less</a>
+    </div>
+</div> -->
+<div class="face-one-nav-item face-one-nav-item--group face-one-nav-item--group-on">
+    <span class="face-one-nav-item-switch fi fi-angle-down"></span>
+    <span class="face-one-nav-item-label">
+        文档
+    </span>
+    <div class="face-one-nav-item-group">
+        <a href="index.html" class="face-one-nav-item-group-item">索引</a>
+        <a href="Sync/index.html" class="face-one-nav-item-group-item">Sync</a>
+        <a href="Check/index.html" class="face-one-nav-item-group-item">Check</a>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="face-one-layout-cnt">
+<div id="face-one-cnt" class="face-one-cnt markdown-body">
+<div id="face-one-sidebar" class="face-one-sidebar"></div>
+<h1 id="文档" ><a class="markrun-anchor" href="../Users/GrifreeMac/Documents/github/onface/form-logic/#文档"><span class="markrun-anchor-link"></span></a>文档</h1><h2 id="sync" ><a class="markrun-anchor" href="../Users/GrifreeMac/Documents/github/onface/form-logic/#sync"><span class="markrun-anchor-link"></span></a>sync</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="input-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">基础使用</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><strong>markdown</strong></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
+import FormLogic <span class="hljs-keyword">from</span> <span class="hljs-string">"face-form"</span>
+class Input extends Component {
+    constructor (props) {
+        super(props)
+        const <span class="hljs-literal">self</span> = this
+        <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span> = {
+            form: {
+                <span class="hljs-keyword">user</span>: 'nimo'
+            }
+        }
+        <span class="hljs-literal">self</span>.form = new FormLogic({
+            getValue: function () {
+                return <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>.form
+            },
+            <span class="hljs-keyword">on</span>Sync: function (value) {
+                let <span class="hljs-keyword">state</span> = <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>
+                <span class="hljs-keyword">state</span>.form = value
+                <span class="hljs-literal">self</span>.<span class="hljs-built_in">set</span>State({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        const <span class="hljs-literal">self</span> = this
+        return (
+            <span class="hljs-variable">&lt;div&gt;</span>
+                <span class="hljs-variable">&lt;input {...self.form.item('user')} /&gt;</span>
+                <span class="hljs-variable">&lt;input {...self.form.password('user')} /&gt;</span>
+                <span class="hljs-variable">&lt;br /&gt;</span>
+                <span class="hljs-variable">&lt;code&gt;</span>
+                {<span class="hljs-literal">self</span>.form.get('<span class="hljs-keyword">user</span>')}
+                &lt;/code&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Input
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="check" ><a class="markrun-anchor" href="../Users/GrifreeMac/Documents/github/onface/form-logic/#check"><span class="markrun-anchor-link"></span></a>check</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="check-basic-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">基础使用</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><strong>markdown</strong></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from <span class="hljs-string">"react"</span>
+import FormLogic from <span class="hljs-string">"face-form"</span>
+import $ from <span class="hljs-string">'jquery'</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Basic</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    constructor (props) {
+        super(props)
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.state = {
+            form: {
+                user: <span class="hljs-string">'nimo1'</span>
+            }
+        }
+        <span class="hljs-keyword">self</span>.form = <span class="hljs-keyword">new</span> FormLogic({
+            app: <span class="hljs-keyword">self</span>,
+            getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.state.form
+            },
+            onSync: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                <span class="hljs-keyword">let</span> state = <span class="hljs-keyword">self</span>.state
+                state.form = value
+                <span class="hljs-keyword">self</span>.setState({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">return</span> (
+            &lt;form
+                onSubmit={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+                    e.preventDefault()
+                    <span class="hljs-keyword">self</span>.form.checkAll(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fail, errors)</span> </span>{
+                        <span class="hljs-keyword">if</span> (fail) {
+                            alert(errors[<span class="hljs-number">0</span>].data)
+                            <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                            <span class="hljs-keyword">return</span>
+                        }
+                        alert(<span class="hljs-string">'success'</span>)
+                    })
+                }}
+             &gt;
+                &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'user'</span>, {
+                    check: {
+                        <span class="hljs-keyword">default</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                            <span class="hljs-keyword">if</span>(/\d/.test(value)){
+                                <span class="hljs-keyword">return</span> <span class="hljs-string">'不允许出现数字'</span>
+                            }<span class="hljs-keyword">else</span> {
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+                            }
+                        },
+                        change: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                            <span class="hljs-keyword">return</span> /\d/.test(value) ? <span class="hljs-string">'不允许出现数字'</span> : <span class="hljs-keyword">true</span>
+                        },
+                        blur: (value) =&gt; {
+                            <span class="hljs-keyword">return</span> /\d/.test(value) ? <span class="hljs-string">'不允许出现数字'</span> : <span class="hljs-keyword">true</span>
+                        }
+                    }
+                })} /&gt;
+                &lt;pre&gt;{<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'user'</span>)}&lt;/pre&gt;
+                &lt;button type=<span class="hljs-string">"submit"</span> &gt;
+                    Submit
+                &lt;/button&gt;
+            &lt;/form&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Basic
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="advanced" ><a class="markrun-anchor" href="../Users/GrifreeMac/Documents/github/onface/form-logic/#advanced"><span class="markrun-anchor-link"></span></a>advanced</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="basic-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">复杂使用</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><strong>markdown</strong></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from <span class="hljs-string">"react"</span>
+import FormLogic from <span class="hljs-string">"face-form"</span>
+import $ from <span class="hljs-string">'jquery'</span>
+<span class="hljs-keyword">var</span> dc = <span class="hljs-keyword">require</span>(<span class="hljs-string">'delay-console'</span>);
+;(typeof <span class="hljs-keyword">global</span>?<span class="hljs-keyword">global</span>.dcDebug = <span class="hljs-keyword">true</span>:window.dcDebug = <span class="hljs-keyword">true</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Basic</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+    constructor (props) {
+        super(props)
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.state = {
+            form: {
+                user: <span class="hljs-string">'nimo1'</span>,
+                psw: <span class="hljs-string">''</span>,
+                sms: <span class="hljs-string">''</span>,
+            }
+        }
+        <span class="hljs-keyword">self</span>.form = <span class="hljs-keyword">new</span> FormLogic({
+            app: <span class="hljs-keyword">self</span>,
+            getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.state.form },
+            onSync: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> </span>{
+                let state = <span class="hljs-keyword">self</span>.state
+                state.form = value
+                <span class="hljs-keyword">self</span>.setState({
+                    form: value
+                })
+            }
+        })
+    }
+    checkAll = (e) =&gt; {
+        let <span class="hljs-keyword">self</span> = this
+        <span class="hljs-comment">/**/</span>
+        dc.group(<span class="hljs-string">'demo checkAll'</span>)
+        <span class="hljs-comment">/**/</span>
+        e.preventDefault()
+        <span class="hljs-keyword">self</span>.form.checkAll(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fail, errors)</span> </span>{
+            <span class="hljs-comment">/**/</span>
+            dc.log(<span class="hljs-string">'fail:'</span>,fail,<span class="hljs-string">', errors'</span>,errors)
+            dc.groupEnd()
+            dc.$show()
+            <span class="hljs-comment">/**/</span>
+            <span class="hljs-keyword">if</span> (fail) {
+                alert(errors[<span class="hljs-number">0</span>].data)
+                <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                <span class="hljs-keyword">return</span>
+            }
+            alert(<span class="hljs-string">'{fn: demo checkAll} success'</span>)
+        })
+    }
+    checkSome = () =&gt; {
+        let <span class="hljs-keyword">self</span> = this
+        let keyArray = [<span class="hljs-string">'user'</span>, <span class="hljs-string">'psw'</span>,<span class="hljs-string">'sms'</span>]
+        <span class="hljs-comment">/**/</span>
+        dc.group(<span class="hljs-string">'demo checkSome'</span>)
+        dc.$input(<span class="hljs-string">'@param'</span>, keyArray)
+        <span class="hljs-comment">/**/</span>
+        <span class="hljs-keyword">self</span>.form.check(
+            keyArray, 
+            {
+                queue:<span class="hljs-keyword">false</span>, <span class="hljs-comment">// false: 全部校验并发执行 | 默认true: 全部交验依次队列执行</span>
+                every:<span class="hljs-keyword">true</span> <span class="hljs-comment">// 默认true: 全部项全部校验完(无论失败成功),最后执行回调 | false: 有一个校验失败,就结束校验执行回调</span>
+            },
+            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(fail, errors)</span> </span>{
+                <span class="hljs-comment">/**/</span>
+                dc.log(<span class="hljs-string">'fail:'</span>,fail,<span class="hljs-string">', errors'</span>,errors)
+                dc.groupEnd()
+                dc.$show()
+                <span class="hljs-comment">/**/</span>
+                <span class="hljs-keyword">if</span> (fail) {
+                    console.log(errors[<span class="hljs-number">0</span>].data)
+                    <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                    <span class="hljs-keyword">return</span>
+                }
+                console.log(<span class="hljs-string">'{fn: demo checkSome} success'</span>)
+            },
+        )
+    }
+    checkOne = (key) =&gt; {
+        let <span class="hljs-keyword">self</span> = this
+        <span class="hljs-comment">/**/</span>
+        dc.group(<span class="hljs-string">'demo checkOne'</span>)
+        dc.$input(<span class="hljs-string">'@param'</span>, key)
+        <span class="hljs-comment">/**/</span>
+        <span class="hljs-keyword">self</span>.form.check(key, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(fail, errors)</span> </span>{
+            <span class="hljs-comment">/**/</span>
+            dc.log(<span class="hljs-string">'key:'</span>,key,<span class="hljs-string">', fail:'</span>,fail,<span class="hljs-string">', errors'</span>,errors)
+            dc.groupEnd()
+            dc.$show()
+            <span class="hljs-comment">/**/</span>
+            <span class="hljs-keyword">if</span> (fail) {
+                alert(errors[<span class="hljs-number">0</span>].data)
+                <span class="hljs-keyword">self</span>.refs[errors[<span class="hljs-number">0</span>].item.ref].focus()
+                <span class="hljs-keyword">return</span>
+            }
+            alert(<span class="hljs-string">'{fn: demo checkOne} success'</span>)
+        })
+    }
+    render() {
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">self</span> = this
+        console.log(<span class="hljs-string">'self.form ('</span>,<span class="hljs-keyword">self</span>.form,<span class="hljs-string">')'</span>)
+        <span class="hljs-keyword">return</span> (
+            &lt;div&gt;
+                &lt;form
+                    onSubmit={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span> </span>{
+                        <span class="hljs-keyword">self</span>.checkAll(e)
+                    }}
+                &gt;
+                    user: &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'user'</span>, {
+                        check: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value)</span> </span>{
+                            <span class="hljs-comment">/**/</span>
+                            dc.group(<span class="hljs-string">'demo input'</span>)
+                            dc.log(`key:user`,`value:${value}`)
+                            <span class="hljs-comment">/**/</span>
+                            <span class="hljs-comment">// console.log('{fn: demo input check} {key: user} {value:',value,'}')</span>
+                            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Promise(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(resolve, reject)</span></span>{
+                                <span class="hljs-keyword">if</span>(/\S/.test(value)){
+                                    console.log(<span class="hljs-string">'{fn: demo input check} {key: user} resolve '</span>)
+                                    <span class="hljs-comment">/**/</span>
+                                    dc.log(<span class="hljs-string">'resolve'</span>)
+                                    dc.groupEnd()
+                                    <span class="hljs-comment">/**/</span>
+                                    resolve()
+                                }<span class="hljs-keyword">else</span>{
+                                    console.log(<span class="hljs-string">'{fn: demo input check} {key: user} reject '</span>)
+                                    <span class="hljs-comment">/**/</span>
+                                    dc.log(<span class="hljs-string">'reject'</span>)
+                                    dc.groupEnd()
+                                    <span class="hljs-comment">/**/</span>
+                                    reject(<span class="hljs-string">'user 不能为空'</span>)
+                                }
+                            })
+                        }
+                    })} /&gt;
+                    &lt;pre&gt;
+                        {<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'user'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(msg)</span></span>{
+                            <span class="hljs-keyword">return</span> &lt;i&gt;{msg||<span class="hljs-string">''</span>}&lt;/i&gt;
+                        })}
+                    &lt;/pre&gt;
+                    psw: &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'psw'</span>, {
+                        check: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value)</span> </span>{
+                            console.log(<span class="hljs-string">'{fn: demo input check} {key: psw} {value:'</span>,value,<span class="hljs-string">'}'</span>)
+                            <span class="hljs-comment">/**/</span>
+                            dc.group(<span class="hljs-string">'demo input'</span>)
+                            dc.log(`key:psw`,`value:${value}`)
+                            <span class="hljs-comment">/**/</span>
+                            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Promise(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(resolve, reject)</span></span>{
+                                setTimeout(()=&gt;{
+                                <span class="hljs-keyword">if</span>(/\S/.test(value)){
+                                    console.log(<span class="hljs-string">'{fn: demo input check} {key: psw} resolve '</span>)
+                                    <span class="hljs-comment">/**/</span>
+                                    dc.log(<span class="hljs-string">'resolve'</span>)
+                                    dc.groupEnd()
+                                    <span class="hljs-comment">/**/</span>
+                                    resolve()
+                                }<span class="hljs-keyword">else</span>{
+                                    console.log(<span class="hljs-string">'{fn: demo input check} {key: psw} reject '</span>)
+                                    <span class="hljs-comment">/**/</span>
+                                    dc.log(<span class="hljs-string">'reject'</span>)
+                                    dc.groupEnd()
+                                    <span class="hljs-comment">/**/</span>
+                                    reject(<span class="hljs-string">'psw 不能为空'</span>)
+                                }
+                                },<span class="hljs-number">2000</span>)
+                            })
+                        }
+                    })} /&gt;
+                    &lt;pre&gt;
+                        {<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'psw'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(msg)</span></span>{
+                            <span class="hljs-comment">// console.log('{fn: demo error} {key: psw} {msg:',msg,'}')</span>
+                            <span class="hljs-keyword">return</span> &lt;i&gt;{msg||<span class="hljs-string">''</span>}&lt;/i&gt;
+                        })}
+                    &lt;/pre&gt;
+                    sms: &lt;input {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'sms'</span>, {
+                        check: {
+                            <span class="hljs-string">'change'</span>:<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value)</span> </span>{
+                                console.log(<span class="hljs-string">'{fn: demo input check blur|change } {key: sms} {value:'</span>,value,<span class="hljs-string">'}'</span>)
+                                <span class="hljs-comment">/**/</span>
+                                dc.group(<span class="hljs-string">'demo input'</span>)
+                                dc.log(`key:sms`,`value:${value}`)
+                                <span class="hljs-comment">/**/</span>
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Promise(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(resolve, reject)</span></span>{
+                                    <span class="hljs-keyword">if</span>(/\S/.test(value)){
+                                        console.log(<span class="hljs-string">'{fn: demo input check blur|change } {key: sms} resolve '</span>)
+                                        <span class="hljs-comment">/**/</span>
+                                        dc.log(<span class="hljs-string">'resolve'</span>)
+                                        dc.groupEnd()
+                                        <span class="hljs-comment">/**/</span>
+                                        resolve()
+                                    }<span class="hljs-keyword">else</span>{
+                                        console.log(<span class="hljs-string">'{fn: demo input check blur|change } {key: sms} reject '</span>)
+                                        <span class="hljs-comment">/**/</span>
+                                        dc.log(<span class="hljs-string">'reject'</span>)
+                                        dc.groupEnd()
+                                        <span class="hljs-comment">/**/</span>
+                                        reject(<span class="hljs-string">'sms 不能为空'</span>)
+                                    }
+                                })
+                            },
+                            <span class="hljs-string">'blur|default'</span>: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(value)</span> </span>{
+                                console.log(<span class="hljs-string">'{fn: demo input commonCheck default} {key: sms} {value:'</span>,value,<span class="hljs-string">'}'</span>)
+                                <span class="hljs-comment">/**/</span>
+                                dc.group(<span class="hljs-string">'demo input'</span>)
+                                dc.log(`key:sms`,`value:${value}`)
+                                <span class="hljs-comment">/**/</span>
+                                <span class="hljs-keyword">if</span>(/\S/.test(value)){
+                                    console.log(<span class="hljs-string">'{fn: demo input commonCheck default} {key: sms} success '</span>)
+                                    <span class="hljs-comment">/**/</span>
+                                    dc.log(<span class="hljs-string">'resolve'</span>)
+                                    dc.groupEnd()
+                                    <span class="hljs-comment">/**/</span>
+                                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>
+                                }<span class="hljs-keyword">else</span>{
+                                    console.log(<span class="hljs-string">'{fn: demo input commonCheck default} {key: sms} errMsg '</span>)
+                                    <span class="hljs-comment">/**/</span>
+                                    dc.log(<span class="hljs-string">'reject'</span>)
+                                    dc.groupEnd()
+                                    <span class="hljs-comment">/**/</span>
+                                    <span class="hljs-keyword">return</span> <span class="hljs-string">'sms 不能为空'</span>
+                                }
+                            }
+                        }
+                    })} /&gt;
+                    &lt;pre&gt;
+                        {<span class="hljs-keyword">self</span>.form.error(<span class="hljs-string">'sms'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(msg)</span></span>{
+                            <span class="hljs-comment">// console.log('{fn: demo error} {key: sms} {msg:',msg,'}')</span>
+                            <span class="hljs-keyword">return</span> &lt;i&gt;{msg||<span class="hljs-string">''</span>}&lt;/i&gt;
+                        })}
+                    &lt;/pre&gt;
+                    &lt;button type=<span class="hljs-string">"submit"</span> &gt;
+                        Submit
+                    &lt;/button&gt;
+                &lt;/form&gt;
+
+
+                &lt;button
+                    onClick={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+                        <span class="hljs-keyword">self</span>.checkSome()
+                    }}
+                &gt;start checkSome&lt;/button&gt;
+                &lt;br/&gt; 
+                &lt;button
+                    onClick={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+                        <span class="hljs-keyword">self</span>.checkOne(<span class="hljs-string">'sms'</span>)
+                    }}
+                &gt;start checkOne(<span class="hljs-string">'sms'</span>)&lt;/button&gt; 
+            &lt;/div&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Basic
+module.exports= Basic
+
+</code></pre>
+                        </div>
+                        
+                    </div></div>
+</div>
+</div>
+</div>
+<script>
+Array.from(document.querySelectorAll('.face-one-nav-item-label')).forEach(function (node) {
+    if (node.href) {
+        var pathname = node.href.replace(/\?.*/, '')
+        if (pathname === location.origin + location.pathname + location.hash) {
+            node.setAttribute('class', node.getAttribute('class') + ' ' + 'face-one-nav-item-label--on')
+        }
+    }
+})
+var faceOneGetParent = function faceOneGetParent (el, className) {
+   if (el.parentNode.nodeName.toLowerCase() === 'html') {
+       return null
+   }
+   var parentClassName = el.parentNode.getAttribute('class')
+   var classNames = ''
+   if (parentClassName) {
+       classNames = parentClassName.split(' ')
+   }
+   if (classNames.indexOf(className) !== -1) {
+       return el.parentNode
+   }
+   else {
+       return faceOneGetParent(el.parentNode, className)
+   }
+}
+Array.from(document.querySelectorAll('.face-one-nav-item-group-item')).forEach(function (node) {
+    addAvativeClass(node)
+    function addAvativeClass (node)  {
+        if (node.href) {
+            var pathname = node.href.replace(/\?.*/, '')
+            if (pathname === location.origin + location.pathname + location.hash) {
+                node.setAttribute('class', node.getAttribute('class') + ' ' + 'face-one-nav-item-group-item--on')
+                var parentNode = faceOneGetParent(node, 'face-one-nav-item--group')
+                if (parentNode) {
+                    parentNode.setAttribute('class', parentNode.getAttribute('class') + ' ' + 'face-one-nav-item--group-on')
+                }
+            }
+        }
+    }
+
+})
+</script>
+<div class="face-one-foot">
+    <div class="face-one-foot-F-inner">
+        <div class="face-one-foot-group">
+            <div class="face-one-foot-group-title">
+                <span class="face-one-foot-group-title-icon fi fi-github"></span>
+                Github
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/face-form" class="face-one-foot-group-item-link">face-form</a>
+                - 项目源码
+            </div>
+        </div>
+        <div class="face-one-foot-group">
+            <div class="face-one-foot-group-title">
+                <span class="face-one-foot-group-title-icon fi fi-link"></span>
+                相关站点
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://onface.github.io/component-spec">component-spec</a>
+                - 组件规范
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/module" class="face-one-foot-group-item-link">module</a>
+                - 开源项目脚手架
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="http://onface.cc/" class="face-one-foot-group-item-link">onface.cc</a>
+                - 资源集合
+            </div>
+        </div>
+        <div class="face-one-foot-group">
+            <div class="face-one-foot-group-title">
+                <span class="face-one-foot-group-title-icon fi fi-team"></span>
+                社区
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/face-form/issues" class="face-one-foot-group-item-link">Github issues</a>
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/face-form/issues/new" class="face-one-foot-group-item-link">提交bug</a>
+            </div>
+        </div>
+        <div class="face-one-foot-copyright">
+            <a href="../index.html" class="face-one-foot-copyright-title">
+                <img src="theme/media/logo.svg" class="face-one-foot-copyright-title-logo" />
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="theme/jquery.js"></script>
+<script>delete window.$</script>
+<script src="theme/face/face.js" ></script>
+<script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="./Sync/Input.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="./Check/Basic.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="./basic.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script></body>
+</html>

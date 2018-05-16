@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="../theme/face/face.css">
+<meta name="keywords" content="">
+<meta name="description" content="Sync">
+<title>Sync</title>
+</head>
+<body>
+<div class="face-one-head">
+    <a class="face-one-head-logo" href="../../index.html">
+        <img src="../theme/media/logo.svg" alt="" class="face-one-head-logo-photo" />
+        face
+    </a>
+    <span class="face-one-head-slogan">
+        Write less code, do more things!
+    </span>
+    <!-- <div class="face-one-head-search">
+        <span class="face-one-head-search-icon fi fi-search"></span>
+        <input type="text" class="face-one-head-search-input" placeholder="搜索..." />
+    </div> -->
+    <div class="face-one-head-nav">
+        <span class="face-one-head-nav-switch fi fi-bars"></span>
+        <div class="face-one-head-nav-F-cnt">
+            <a href="../../index.html" class="face-one-head-nav-link">首页</a>
+            <a href="../intro.html" class="face-one-head-nav-link">指引</a>
+            <a href="../index.html" class="face-one-head-nav-link">文档</a>
+        </div>
+        <script>
+        Array.from(document.querySelectorAll('.face-one-head-nav-link')).forEach(function (node) {
+            if (node.href) {
+                var pathname = node.href.replace(/\?.*/, '')
+                if (pathname === location.origin + location.pathname) {
+                    node.setAttribute('class', node.getAttribute('class') + ' ' + 'face-one-head-nav-link--on')
+                }
+            }
+        })
+        </script>
+    </div>
+</div>
+
+<div class="face-one-layout">
+<div class="face-one-layout-F-line">
+<div class="face-one-layout-sidebar">
+<div class="face-one-nav">
+<span class="face-one-nav-switch fi fi-angle-double-right"></span>
+<div class="face-one-nav-F-inner">
+<div class="face-one-nav-item">
+    <a href="../intro.html" class="face-one-nav-item-label">指引</a>
+</div>
+<!-- <div class="face-one-nav-item">
+    <a href="../index.html" class="face-one-nav-item-label">文档</a>
+</div> -->
+<!-- face-one-nav-item--group-on 控制默认展开 -->
+<!-- <div class="face-one-nav-item face-one-nav-item--group face-one-nav-item--group-on">
+    <span class="face-one-nav-item-switch fi fi-down"></span>
+    <span class="face-one-nav-item-label">
+        文档
+    </span>
+    <div class="face-one-nav-item-group">
+        <div class="face-one-nav-item-group-title">示例</div>
+        <a href="../index.html#style" class="face-one-nav-item-group-item">颜色</a>
+        <a href="../index.html#border" class="face-one-nav-item-group-item">边框</a>
+    </div>
+    <div class="face-one-nav-item-group">
+        <div class="face-one-nav-item-group-title">自定义界面</div>
+        <a href="../index.html#less" class="face-one-nav-item-group-item">less</a>
+    </div>
+</div> -->
+<div class="face-one-nav-item face-one-nav-item--group face-one-nav-item--group-on">
+    <span class="face-one-nav-item-switch fi fi-angle-down"></span>
+    <span class="face-one-nav-item-label">
+        文档
+    </span>
+    <div class="face-one-nav-item-group">
+        <a href="../index.html" class="face-one-nav-item-group-item">索引</a>
+        <a href="index.html" class="face-one-nav-item-group-item">Sync</a>
+        <a href="../Check/index.html" class="face-one-nav-item-group-item">Check</a>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+<div class="face-one-layout-cnt">
+<div id="face-one-cnt" class="face-one-cnt markdown-body">
+<div id="face-one-sidebar" class="face-one-sidebar"></div>
+<h1 id="Sync" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#Sync"><span class="markrun-anchor-link"></span></a>Sync</h1><p><code>Sync</code> 可在 React 这类单向数据流的框架中达到双向绑定的效果，
+但实际上还是单向数据流。<br>这是一个可以提高开发效率的<strong>双向绑定语法糖</strong>。</p>
+<h2 id="text&amp;password" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#text&amp;password"><span class="markrun-anchor-link"></span></a>text&amp;password</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="input-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">input</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>&lt;input {...self.form.item(&quot;user&quot;)} /&gt;</code> <br/> <code>&lt;input {...self.form.password(&quot;user&quot;)} /&gt;</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
+import FormLogic <span class="hljs-keyword">from</span> <span class="hljs-string">"face-form"</span>
+class Input extends Component {
+    constructor (props) {
+        super(props)
+        const <span class="hljs-literal">self</span> = this
+        <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span> = {
+            form: {
+                <span class="hljs-keyword">user</span>: 'nimo'
+            }
+        }
+        <span class="hljs-literal">self</span>.form = new FormLogic({
+            getValue: function () {
+                return <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>.form
+            },
+            <span class="hljs-keyword">on</span>Sync: function (value) {
+                let <span class="hljs-keyword">state</span> = <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>
+                <span class="hljs-keyword">state</span>.form = value
+                <span class="hljs-literal">self</span>.<span class="hljs-built_in">set</span>State({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        const <span class="hljs-literal">self</span> = this
+        return (
+            <span class="hljs-variable">&lt;div&gt;</span>
+                <span class="hljs-variable">&lt;input {...self.form.item('user')} /&gt;</span>
+                <span class="hljs-variable">&lt;input {...self.form.password('user')} /&gt;</span>
+                <span class="hljs-variable">&lt;br /&gt;</span>
+                <span class="hljs-variable">&lt;code&gt;</span>
+                {<span class="hljs-literal">self</span>.form.get('<span class="hljs-keyword">user</span>')}
+                &lt;/code&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Input
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="Select" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#Select"><span class="markrun-anchor-link"></span></a>Select</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="select-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">select</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>&lt;select {...self.form.item(&quot;user&quot;)}&gt;</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
+import FormLogic <span class="hljs-keyword">from</span> <span class="hljs-string">"face-form"</span>
+class Select extends Component {
+    constructor (props) {
+        super(props)
+        const <span class="hljs-literal">self</span> = this
+        <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span> = {
+            form: {
+                <span class="hljs-keyword">user</span>: 'nimo'
+            }
+        }
+        <span class="hljs-literal">self</span>.form = new FormLogic({
+            getValue: function () {
+                return <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>.form
+            },
+            <span class="hljs-keyword">on</span>Sync: function (value) {
+                let <span class="hljs-keyword">state</span> = <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>
+                <span class="hljs-keyword">state</span>.form = value
+                <span class="hljs-literal">self</span>.<span class="hljs-built_in">set</span>State({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        const <span class="hljs-literal">self</span> = this
+        return (
+            <span class="hljs-variable">&lt;div&gt;</span>
+                <span class="hljs-variable">&lt;select {...self.form.item('user')}&gt;</span>
+                    <span class="hljs-variable">&lt;option value="tim" &gt;</span>tim&lt;/option&gt;
+                    <span class="hljs-variable">&lt;option value="nimo" &gt;</span>nimo&lt;/option&gt;
+                    <span class="hljs-variable">&lt;option value="nico" &gt;</span>nico&lt;/option&gt;
+                &lt;/select&gt;
+                <span class="hljs-variable">&lt;br /&gt;</span>
+                <span class="hljs-variable">&lt;code&gt;</span>
+                {<span class="hljs-literal">self</span>.form.get('<span class="hljs-keyword">user</span>')}
+                &lt;/code&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Select
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="Checkbox" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#Checkbox"><span class="markrun-anchor-link"></span></a>Checkbox</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="checkbox-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">checkbox</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>&lt;input {...self.form.checkbox(&quot;user&quot;, { value: &quot;nimo&quot; })} /&gt;</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
+import FormLogic <span class="hljs-keyword">from</span> <span class="hljs-string">"face-form"</span>
+class Checkbox extends Component {
+    constructor (props) {
+        super(props)
+        const <span class="hljs-literal">self</span> = this
+        <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span> = {
+            form: {
+                <span class="hljs-keyword">user</span>: []
+            }
+        }
+        <span class="hljs-literal">self</span>.form = new FormLogic({
+            getValue: function () {
+                return <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>.form
+            },
+            <span class="hljs-keyword">on</span>Sync: function (value) {
+                let <span class="hljs-keyword">state</span> = <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>
+                <span class="hljs-keyword">state</span>.form = value
+                <span class="hljs-literal">self</span>.<span class="hljs-built_in">set</span>State({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        const <span class="hljs-literal">self</span> = this
+        return (
+            <span class="hljs-variable">&lt;div&gt;</span>
+                <span class="hljs-variable">&lt;label&gt;</span>
+                    <span class="hljs-variable">&lt;input
+                        {...self.form.checkbox('user', {
+                            value: 'tim'
+                        })}
+                    /&gt;</span> tim
+                &lt;/label&gt;
+                <span class="hljs-variable">&lt;label&gt;</span>
+                    <span class="hljs-variable">&lt;input
+                        {...self.form.checkbox('user', {
+                            value: 'nimo'
+                        })}
+                    /&gt;</span> nimo
+                &lt;/label&gt;
+                <span class="hljs-variable">&lt;label&gt;</span>
+                    <span class="hljs-variable">&lt;input
+                        {...self.form.checkbox('user', {
+                            value: 'nico'
+                        })}
+                    /&gt;</span> nico
+                &lt;/label&gt;
+                <span class="hljs-variable">&lt;br /&gt;</span>
+                <span class="hljs-variable">&lt;code&gt;</span>
+                {JSON.stringify(<span class="hljs-literal">self</span>.form.get('<span class="hljs-keyword">user</span>'))}
+                &lt;/code&gt;
+
+            &lt;/div&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Checkbox
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="Radio" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#Radio"><span class="markrun-anchor-link"></span></a>Radio</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="radio-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">radio</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>&lt;input {...self.form.radio(&quot;user&quot;, { value: &quot;nimo&quot; })} /&gt;</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
+import FormLogic <span class="hljs-keyword">from</span> <span class="hljs-string">"face-form"</span>
+class Radio extends Component {
+    constructor (props) {
+        super(props)
+        const <span class="hljs-literal">self</span> = this
+        <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span> = {
+            form: {
+                <span class="hljs-keyword">user</span>: ''
+            }
+        }
+        <span class="hljs-literal">self</span>.form = new FormLogic({
+            getValue: function () {
+                return <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>.form
+            },
+            <span class="hljs-keyword">on</span>Sync: function (value) {
+                let <span class="hljs-keyword">state</span> = <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>
+                <span class="hljs-keyword">state</span>.form = value
+                <span class="hljs-literal">self</span>.<span class="hljs-built_in">set</span>State({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        const <span class="hljs-literal">self</span> = this
+        return (
+            <span class="hljs-variable">&lt;div&gt;</span>
+                <span class="hljs-variable">&lt;label&gt;</span>
+                    <span class="hljs-variable">&lt;input
+                        {...self.form.radio('user', {
+                            value: 'tim'
+                        })}
+                    /&gt;</span> tim
+                &lt;/label&gt;
+                <span class="hljs-variable">&lt;label&gt;</span>
+                    <span class="hljs-variable">&lt;input
+                        {...self.form.radio('user', {
+                            value: 'nimo'
+                        })}
+                    /&gt;</span> nimo
+                &lt;/label&gt;
+                <span class="hljs-variable">&lt;label&gt;</span>
+                    <span class="hljs-variable">&lt;input
+                        {...self.form.radio('user', {
+                            value: 'nico'
+                        })}
+                    /&gt;</span> nico
+                &lt;/label&gt;
+                <span class="hljs-variable">&lt;br /&gt;</span>
+                <span class="hljs-variable">&lt;code&gt;</span>
+                {JSON.stringify(<span class="hljs-literal">self</span>.form.get('<span class="hljs-keyword">user</span>'))}
+                &lt;/code&gt;
+
+            &lt;/div&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Radio
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="Textarea" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#Textarea"><span class="markrun-anchor-link"></span></a>Textarea</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="textarea-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">textarea</div>
+                                <div class="face-one-code-info-desc">
+                                    <p><code>&lt;input {...self.form.radio(&quot;user&quot;, { value: &quot;nimo&quot; })} /&gt;</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
+import FormLogic <span class="hljs-keyword">from</span> <span class="hljs-string">"face-form"</span>
+class Textarea extends Component {
+    constructor (props) {
+        super(props)
+        const <span class="hljs-literal">self</span> = this
+        <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span> = {
+            form: {
+                <span class="hljs-keyword">user</span>: 'nimo'
+            }
+        }
+        <span class="hljs-literal">self</span>.form = new FormLogic({
+            getValue: function () {
+                return <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>.form
+            },
+            <span class="hljs-keyword">on</span>Sync: function (value) {
+                let <span class="hljs-keyword">state</span> = <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>
+                <span class="hljs-keyword">state</span>.form = value
+                <span class="hljs-literal">self</span>.<span class="hljs-built_in">set</span>State({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        const <span class="hljs-literal">self</span> = this
+        return (
+            <span class="hljs-variable">&lt;div&gt;</span>
+                <span class="hljs-variable">&lt;textarea {...self.form.textarea('user')} /&gt;</span>
+                <span class="hljs-variable">&lt;br /&gt;</span>
+                <span class="hljs-variable">&lt;code&gt;</span>
+                {<span class="hljs-literal">self</span>.form.get('<span class="hljs-keyword">user</span>')}
+                &lt;/code&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> Textarea
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="Custom input/output" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#Custom input/output"><span class="markrun-anchor-link"></span></a>Custom input/output</h2>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="count-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">Count</div>
+                                <div class="face-one-code-info-desc">
+                                    <p>transform: input<code>props</code> output<code>change</code></p>
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>
+import FormLogic <span class="hljs-keyword">from</span> <span class="hljs-string">"face-form"</span>
+
+class Count extends Component {
+    constructor (props) {
+        super(props)
+        const <span class="hljs-literal">self</span> = this
+        <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span> = {
+
+        }
+    }
+    render() {
+        const <span class="hljs-literal">self</span> = this
+        return (
+            <span class="hljs-variable">&lt;button className="countButton"
+                onClick={function () {
+                    self.props.onMount(
+                        self.props.count + 1
+                    )
+                }} &gt;</span>
+                {<span class="hljs-literal">self</span>.props.count}
+            &lt;/button&gt;
+        )
+    }
+}
+
+
+class CountDemo extends Component {
+    constructor (props) {
+        super(props)
+        const <span class="hljs-literal">self</span> = this
+        <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span> = {
+            form: {
+                <span class="hljs-keyword">user</span>: <span class="hljs-number">1</span>
+            }
+        }
+        <span class="hljs-literal">self</span>.form = new FormLogic({
+            getValue: function () {
+                return <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>.form
+            },
+            <span class="hljs-keyword">on</span>Sync: function (value) {
+                let <span class="hljs-keyword">state</span> = <span class="hljs-literal">self</span>.<span class="hljs-keyword">state</span>
+                <span class="hljs-keyword">state</span>.form = value
+                <span class="hljs-literal">self</span>.<span class="hljs-built_in">set</span>State({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        const <span class="hljs-literal">self</span> = this
+        return (
+            <span class="hljs-variable">&lt;div&gt;</span>
+                {/*
+                    <span class="hljs-variable">&lt;Count
+                        count={1}
+                        onMount={function(count){...}}
+                    /&gt;</span>
+                */}
+                <span class="hljs-variable">&lt;Count
+                    {
+                        ...self.form.item('user', {
+                            props: 'count',
+                            change: 'onMount'
+                        })
+                    }
+                /&gt;</span>
+            &lt;/div&gt;
+        )
+    }
+}
+
+export <span class="hljs-keyword">default</span> CountDemo
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h3 id="multiple parameter" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#multiple parameter"><span class="markrun-anchor-link"></span></a>multiple parameter</h3>
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="propsmulti-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">props sync</div>
+                                <div class="face-one-code-info-desc">
+                                    
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from "react"
+import FormLogic from "face-form"
+
+class Range extends Component {
+    constructor (props) {
+        super(props)
+        const self = this
+        self.state = {
+
+        }
+    }
+    render() {
+        const self = this
+        return (
+            &lt;div&gt;
+                &lt;<span class="hljs-keyword">select</span>
+                    className=<span class="hljs-string">"rangeStart"</span>
+                    <span class="hljs-keyword">value</span>={<span class="hljs-keyword">self</span>.props.<span class="hljs-keyword">start</span>}
+                    onChange={<span class="hljs-keyword">function</span> (<span class="hljs-built_in">e</span>) {
+                        <span class="hljs-keyword">self</span>.props.onChange(
+                            <span class="hljs-built_in">e</span>.target.<span class="hljs-keyword">value</span>,
+                            <span class="hljs-keyword">self</span>.props.<span class="hljs-keyword">end</span>
+                        )
+                    }}
+                &gt;
+                    &lt;<span class="hljs-keyword">option</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"1"</span>&gt;<span class="hljs-number">1</span>&lt;/<span class="hljs-keyword">option</span>&gt;
+                    &lt;<span class="hljs-keyword">option</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"2"</span>&gt;<span class="hljs-number">2</span>&lt;/<span class="hljs-keyword">option</span>&gt;
+                    &lt;<span class="hljs-keyword">option</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"3"</span>&gt;<span class="hljs-number">3</span>&lt;/<span class="hljs-keyword">option</span>&gt;
+                &lt;/<span class="hljs-keyword">select</span>&gt;
+                &lt;<span class="hljs-keyword">select</span>
+                    className=<span class="hljs-string">"rangeEnd"</span>
+                    <span class="hljs-keyword">value</span>={<span class="hljs-keyword">self</span>.props.<span class="hljs-keyword">end</span>}
+                    onChange={<span class="hljs-keyword">function</span> (<span class="hljs-built_in">e</span>) {
+                        <span class="hljs-keyword">self</span>.props.onChange(
+                            <span class="hljs-keyword">self</span>.props.<span class="hljs-keyword">start</span>,
+                            <span class="hljs-built_in">e</span>.target.<span class="hljs-keyword">value</span>
+                        )
+                    }}
+                &gt;
+                    &lt;<span class="hljs-keyword">option</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"4"</span>&gt;<span class="hljs-number">4</span>&lt;/<span class="hljs-keyword">option</span>&gt;
+                    &lt;<span class="hljs-keyword">option</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"5"</span>&gt;<span class="hljs-number">5</span>&lt;/<span class="hljs-keyword">option</span>&gt;
+                    &lt;<span class="hljs-keyword">option</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"6"</span>&gt;<span class="hljs-number">6</span>&lt;/<span class="hljs-keyword">option</span>&gt;
+                &lt;/<span class="hljs-keyword">select</span>&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+class Props extends Component {
+    constructor (props) {
+        super(props)
+        const <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">self</span>.state = {
+            form: {
+                range: [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>]
+            }
+        }
+        <span class="hljs-keyword">self</span>.form = new FormLogic({
+            getValue: <span class="hljs-keyword">function</span> () {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">self</span>.state.form
+            },
+            onSync: <span class="hljs-keyword">function</span> (<span class="hljs-keyword">value</span>) {
+                <span class="hljs-keyword">let</span> state = <span class="hljs-keyword">self</span>.state
+                state.form = <span class="hljs-keyword">value</span>
+                <span class="hljs-keyword">self</span>.setState({
+                    form: <span class="hljs-keyword">value</span>
+                })
+            }
+        })
+    }
+    render() {
+        const <span class="hljs-keyword">self</span> = this
+        <span class="hljs-keyword">return</span> (
+            &lt;div&gt;
+                {<span class="hljs-comment">/*
+                    &lt;Range
+                        start={'2'}
+                        end={'5'}
+                        onChange={function (start, end) {
+                            console.log(start, end)
+                        }}
+                    /&gt;
+                */</span>}
+                &lt;Range
+                    {...<span class="hljs-keyword">self</span>.form.item(<span class="hljs-string">'range'</span>, {
+                        props: <span class="hljs-keyword">function</span> (<span class="hljs-keyword">value</span>) {
+                            <span class="hljs-keyword">return</span> {
+                                <span class="hljs-keyword">start</span>: <span class="hljs-keyword">value</span>[<span class="hljs-number">0</span>],
+                                <span class="hljs-keyword">end</span>: <span class="hljs-keyword">value</span>[<span class="hljs-number">1</span>]
+                            }
+                        },
+                        sync: <span class="hljs-keyword">function</span> (<span class="hljs-keyword">start</span>, <span class="hljs-keyword">end</span>) {
+                            <span class="hljs-keyword">return</span> [<span class="hljs-keyword">start</span>, <span class="hljs-keyword">end</span>]
+                        }
+                    })}
+                /&gt;
+                &lt;br /&gt;
+                &lt;code&gt;
+                {JSON.stringify(<span class="hljs-keyword">self</span>.form.get(<span class="hljs-string">'range'</span>))}
+                &lt;/code&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default Props
+
+</code></pre>
+                        </div>
+                        
+                    </div>
+                                
+<h2 id="get/set/getValue" ><a class="markrun-anchor" href="../../Users/GrifreeMac/Documents/github/onface/form-logic/#get/set/getValue"><span class="markrun-anchor-link"></span></a>get/set/getValue</h2><style>
+#getset-demo table { 
+    width:100%; 
+    display: table;
+    table-layout: fixed;
+}
+#getset-demo table td { border-style:dashed;vertical-align: top; }
+#getset-demo table tr { border:none; }
+#getset-demo .code {
+    border: 1px solid #fff;
+    padding:5px !important;
+    margin:5px 0 !important;
+}
+#getset-demo .code:hover {
+    cursor: pointer;
+    border: 1px solid #999;
+}
+</style>
+
+
+    <div class="face-one-code  face-one-code--open ">
+                        <div class="face-one-code-F-view">
+                            <div class="face-one-code-example">
+                                <div id="getset-demo" ></div>
+                            </div>
+                            <div class="face-one-code-info">
+                                <div class="face-one-code-info-title">get set</div>
+                                <div class="face-one-code-info-desc">
+                                    
+                                </div>
+                                <span class="face-one-code-info-switchCode fi fi-code"></span>
+                            </div>
+                        </div>
+                        <div class="face-one-code-source">
+                            <div class="face-one-code-source-tool">
+                                <span class="face-one-code-source-tool-copy fi fi-files-o"></span>
+                            </div>
+                            <pre><code class="lang-js">import React , { Component } from <span class="hljs-string">"react"</span>
+import FormLogic from <span class="hljs-string">"face-form"</span>
+class Input extends Component {
+    constructor (props) {
+        super(props)
+        const self = this
+        self.state = {
+            form: {
+                user: <span class="hljs-string">'nimo'</span>,
+                age: <span class="hljs-number">12</span>,
+                <span class="hljs-keyword">list</span><span class="hljs-variable">s:</span>[
+                    {
+                        id:<span class="hljs-number">111</span>,
+                        name:<span class="hljs-string">'grifree'</span>
+                    },{
+                        id:<span class="hljs-number">222</span>,
+                        name:<span class="hljs-string">'haha'</span>
+                    }
+                ]
+            }
+        }
+        self.form = <span class="hljs-keyword">new</span> FormLogic({
+            getValue: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+                <span class="hljs-keyword">return</span> self.state.form
+            },
+            onSync: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(value)</span> {</span>
+                <span class="hljs-keyword">let</span> state = self.state
+                state.form = value
+                self.setState({
+                    form: value
+                })
+            }
+        })
+    }
+    render() {
+        const self = this
+        <span class="hljs-keyword">return</span> (
+            <span class="hljs-symbol">&lt;div&gt;</span>
+                <span class="hljs-symbol">&lt;table&gt;</span>
+                <span class="hljs-symbol">&lt;tbody&gt;</span>
+                <span class="hljs-symbol">&lt;tr&gt;</span>
+                <span class="hljs-symbol">&lt;td&gt;</span>
+                            this.state = 
+                            <span class="hljs-symbol">&lt;pre&gt;</span>
+                                {JSON.stringify(self.state.form, null, <span class="hljs-number">4</span>)}
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+                &lt;/td&gt;
+                <span class="hljs-symbol">&lt;td&gt;</span>
+                            user: &lt;<span class="hljs-built_in">input</span> {...self.form.item(<span class="hljs-string">'user'</span>)} /&gt;&lt;<span class="hljs-keyword">br</span>/&gt;
+                            age: &lt;<span class="hljs-built_in">input</span> {...self.form.item(<span class="hljs-string">'age'</span>)} /&gt;&lt;<span class="hljs-keyword">br</span>/&gt;
+                &lt;/td&gt;
+                &lt;/<span class="hljs-keyword">tr</span>&gt;
+                &lt;/tbody&gt;
+                &lt;/table&gt;
+                <span class="hljs-symbol">&lt;table&gt;</span>
+                <span class="hljs-symbol">&lt;tbody&gt;</span>
+                <span class="hljs-symbol">&lt;tr&gt;</span>
+                <span class="hljs-symbol">&lt;td&gt;</span>
+                            &lt;<span class="hljs-keyword">pre</span> className=<span class="hljs-string">"code"</span>
+                                onClick={<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+                                    self.form.<span class="hljs-keyword">set</span>(
+                                        <span class="hljs-string">'user'</span>, 
+                                        Math.random().toFixed(<span class="hljs-number">2</span>)
+                                    )
+                                }}
+                            &gt;
+                                <span class="hljs-keyword">set</span>(<span class="hljs-string">'user'</span>, Math.random().toFixed(<span class="hljs-number">2</span>) )
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+                            &lt;<span class="hljs-keyword">pre</span> className=<span class="hljs-string">"code"</span>
+                                onClick={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                                    self.form.<span class="hljs-keyword">set</span>(<span class="hljs-string">'lists[0].name'</span>,Math.random())
+                                }}
+                            &gt;
+                                <span class="hljs-keyword">set</span>(<span class="hljs-string">'lists[0].name'</span>, Math.random())
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+                            &lt;<span class="hljs-keyword">pre</span> className=<span class="hljs-string">"code"</span>
+                                onClick={<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> {</span>
+                                    self.form.<span class="hljs-keyword">set</span>(<span class="hljs-string">'lists[{id:222}].name'</span>,Math.random())
+                                }}
+                            &gt;
+                                {`<span class="hljs-keyword">set</span>(<span class="hljs-string">'lists[{id:222}].name'</span>,Math.random())`}
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+                            &lt;<span class="hljs-keyword">pre</span> className=<span class="hljs-string">"code"</span>
+                                onClick={<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+                                    self.form.<span class="hljs-keyword">set</span>({
+                                        user: Math.random().toFixed(<span class="hljs-number">2</span>),
+                                        age: Math.random().toFixed(<span class="hljs-number">2</span>)
+                                    })
+                                }}
+                            &gt;
+{`<span class="hljs-keyword">set</span>({
+    user: Math.random().toFixed(<span class="hljs-number">2</span>),
+    age: Math.random().toFixed(<span class="hljs-number">2</span>)
+})`}
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+                            &lt;<span class="hljs-keyword">pre</span> className=<span class="hljs-string">"code"</span>
+                                onClick={<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> {</span>
+                                    self.form.<span class="hljs-keyword">set</span>(
+                                        <span class="hljs-string">'lists[0]'</span>,
+                                        {
+                                            id: Math.random(),
+                                            name: Math.random()
+                                        }
+                                    )
+                                }}
+                            &gt;
+{`<span class="hljs-keyword">set</span>(<span class="hljs-string">'lists[0]'</span>,{
+    id: Math.random(),
+    name: Math.random()
+})`}
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+
+                &lt;/td&gt;
+                <span class="hljs-symbol">&lt;td&gt;</span>
+                            &lt;<span class="hljs-keyword">pre</span> className=<span class="hljs-string">"code"</span>
+                                onClick={<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span>
+                                    alert(JSON.stringify(self.form.getValue()))
+                                }}
+                            &gt;
+                                getValue
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+                            &lt;<span class="hljs-keyword">pre</span> className=<span class="hljs-string">"code"</span>
+                                onClick={<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span>
+                                    alert(JSON.stringify(self.form.<span class="hljs-built_in">get</span>(<span class="hljs-string">'user'</span>)))
+                                }}
+                            &gt;
+                                <span class="hljs-built_in">get</span>(<span class="hljs-string">'user'</span>)
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+                            &lt;<span class="hljs-keyword">pre</span> className=<span class="hljs-string">"code"</span>
+                                onClick={<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span>
+                                    alert(JSON.stringify(self.form.<span class="hljs-built_in">get</span>(<span class="hljs-string">'lists[0].name'</span>)))
+                                }}
+                            &gt;
+                                <span class="hljs-built_in">get</span>(<span class="hljs-string">'lists[0].name'</span>)
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+                            &lt;<span class="hljs-keyword">pre</span> className=<span class="hljs-string">"code"</span>
+                                onClick={<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span>
+                                    alert(JSON.stringify(self.form.<span class="hljs-built_in">get</span>(<span class="hljs-string">'lists[{id:222}].name'</span>)))
+                                }}
+                            &gt;
+                                {`<span class="hljs-built_in">get</span>(<span class="hljs-string">'lists[{id:222}].name'</span>)`}
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+                            &lt;<span class="hljs-keyword">pre</span> className=<span class="hljs-string">"code"</span>
+                                onClick={<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> {</span>
+                                    alert(JSON.stringify(self.form.<span class="hljs-built_in">get</span>(<span class="hljs-string">'lists[0]'</span>)))
+                                }}
+                            &gt;
+                                <span class="hljs-built_in">get</span>(<span class="hljs-string">'lists[0]'</span>)
+                            &lt;/<span class="hljs-keyword">pre</span>&gt;
+                &lt;/td&gt;
+                &lt;/<span class="hljs-keyword">tr</span>&gt;
+                &lt;/tbody&gt;
+                &lt;/table&gt;
+
+
+            &lt;/div&gt;
+        )
+    }
+}
+
+export default Input
+
+</code></pre>
+                        </div>
+                        
+                    </div></div>
+</div>
+</div>
+</div>
+<script>
+Array.from(document.querySelectorAll('.face-one-nav-item-label')).forEach(function (node) {
+    if (node.href) {
+        var pathname = node.href.replace(/\?.*/, '')
+        if (pathname === location.origin + location.pathname + location.hash) {
+            node.setAttribute('class', node.getAttribute('class') + ' ' + 'face-one-nav-item-label--on')
+        }
+    }
+})
+var faceOneGetParent = function faceOneGetParent (el, className) {
+   if (el.parentNode.nodeName.toLowerCase() === 'html') {
+       return null
+   }
+   var parentClassName = el.parentNode.getAttribute('class')
+   var classNames = ''
+   if (parentClassName) {
+       classNames = parentClassName.split(' ')
+   }
+   if (classNames.indexOf(className) !== -1) {
+       return el.parentNode
+   }
+   else {
+       return faceOneGetParent(el.parentNode, className)
+   }
+}
+Array.from(document.querySelectorAll('.face-one-nav-item-group-item')).forEach(function (node) {
+    addAvativeClass(node)
+    function addAvativeClass (node)  {
+        if (node.href) {
+            var pathname = node.href.replace(/\?.*/, '')
+            if (pathname === location.origin + location.pathname + location.hash) {
+                node.setAttribute('class', node.getAttribute('class') + ' ' + 'face-one-nav-item-group-item--on')
+                var parentNode = faceOneGetParent(node, 'face-one-nav-item--group')
+                if (parentNode) {
+                    parentNode.setAttribute('class', parentNode.getAttribute('class') + ' ' + 'face-one-nav-item--group-on')
+                }
+            }
+        }
+    }
+
+})
+</script>
+<div class="face-one-foot">
+    <div class="face-one-foot-F-inner">
+        <div class="face-one-foot-group">
+            <div class="face-one-foot-group-title">
+                <span class="face-one-foot-group-title-icon fi fi-github"></span>
+                Github
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/face-form" class="face-one-foot-group-item-link">face-form</a>
+                - 项目源码
+            </div>
+        </div>
+        <div class="face-one-foot-group">
+            <div class="face-one-foot-group-title">
+                <span class="face-one-foot-group-title-icon fi fi-link"></span>
+                相关站点
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://onface.github.io/component-spec">component-spec</a>
+                - 组件规范
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/module" class="face-one-foot-group-item-link">module</a>
+                - 开源项目脚手架
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="http://onface.cc/" class="face-one-foot-group-item-link">onface.cc</a>
+                - 资源集合
+            </div>
+        </div>
+        <div class="face-one-foot-group">
+            <div class="face-one-foot-group-title">
+                <span class="face-one-foot-group-title-icon fi fi-team"></span>
+                社区
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/face-form/issues" class="face-one-foot-group-item-link">Github issues</a>
+            </div>
+            <div class="face-one-foot-group-item">
+                <a href="https://github.com/onface/face-form/issues/new" class="face-one-foot-group-item-link">提交bug</a>
+            </div>
+        </div>
+        <div class="face-one-foot-copyright">
+            <a href="../../index.html" class="face-one-foot-copyright-title">
+                <img src="../theme/media/logo.svg" class="face-one-foot-copyright-title-logo" />
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="../theme/jquery.js"></script>
+<script>delete window.$</script>
+<script src="../theme/face/face.js" ></script>
+<script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="../Sync/Input.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="../Sync/Select.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="../Sync/Checkbox.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="../Sync/Radio.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="../Sync/Textarea.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="../Sync/Count.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="../Sync/Props.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script><script data-markrun-lastrun="true">
+                        document.write('<scri' + 'pt src="../Sync/GetSet.demo.js?v=0.2.0"' + '" ></sc' + 'ript>')
+                        </script></body>
+</html>
