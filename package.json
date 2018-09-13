@@ -1,7 +1,7 @@
 {
     "name": "face-form",
     "main": "lib/index.js",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "description": "Formlogic",
     "keywords": "",
     "scripts": {
@@ -18,7 +18,6 @@
     "$username": "onface",
     "$repository": "face-form",
     "dependencies": {
-        "delay-console": "^0.3.0",
         "delayeach": "^0.2.0",
         "json-modif": "^0.2.0",
         "prop-types": "^15.6.0",
